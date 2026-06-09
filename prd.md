@@ -160,3 +160,6 @@ A clean, modern flower education and bouquet building website that helps users l
 - Additional flower/bouquet/plant content
 - Email automation for class confirmations
 - Potential online class offerings
+
+# Sketch 
+C:\Users\amolendyk1\Desktop\ally-flower-shop\ally-flower-shop\website-sketch.jpg 
