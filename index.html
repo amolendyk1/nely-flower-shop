@@ -1,1232 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Bud &amp; Bloom — Flower Education &amp; Bouquet Shop</title>
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f8d7da'/%3E%3Cstop offset='100%25' stop-color='%23e8b4b8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cline x1='32' y1='38' x2='32' y2='56' stroke='%23a8d5b5' stroke-width='4' stroke-linecap='round'/%3E%3Cellipse cx='22' cy='48' rx='6' ry='3' fill='%23a8d5b5' transform='rotate(-30 22 48)'/%3E%3Ccircle cx='32' cy='22' r='8' fill='url(%23g)'/%3E%3Ccircle cx='24' cy='28' r='7' fill='url(%23g)'/%3E%3Ccircle cx='40' cy='28' r='7' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='34' r='7' fill='url(%23g)'/%3E%3Ccircle cx='36' cy='34' r='7' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='30' r='5' fill='%23fff3cd'/%3E%3C/svg%3E"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      /* ===== Reset & Base ===== */
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: "Inter", sans-serif;
-        color: #3d3d3d;
-        background: #fcf9f7;
-        line-height: 1.6;
-      }
-      h1,
-      h2,
-      h3,
-      h4 {
-        font-family: "Playfair Display", serif;
-        font-weight: 600;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      img {
-        max-width: 100%;
-        display: block;
-      }
-      ul {
-        list-style: none;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bud & Bloom — Flower Education & Bouquet Shop</title>
+  <meta name="description" content="The Bud & Bloom — Learn about flowers, build beautiful bouquets, and sign up for in-person floral arrangement classes.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌸%3C/text%3E%3C/svg%3E">
+</head>
+<body>
 
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 24px;
-      }
-
-      /* ===== Pastel Palette ===== */
-      :root {
-        --pink: #f8d7da;
-        --pink-dark: #e8b4b8;
-        --purple: #e2d5f5;
-        --purple-dark: #c9b3e8;
-        --yellow: #fff3cd;
-        --yellow-dark: #f0df9a;
-        --blue: #d6ecf7;
-        --blue-dark: #b0d4e8;
-        --green: #d4edda;
-        --green-dark: #a8d5b5;
-        --text: #3d3d3d;
-        --text-light: #6b6b6b;
-        --bg: #fcf9f7;
-        --white: #ffffff;
-        --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      }
-
-      /* ===== Header / Nav ===== */
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        background: rgba(252, 249, 247, 0.95);
-        backdrop-filter: blur(8px);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      }
-      nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 16px 24px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .logo {
-        font-family: "Playfair Display", serif;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #b07d8b;
-      }
-      .logo span {
-        color: var(--text);
-      }
-      .nav-links {
-        display: flex;
-        gap: 24px;
-        align-items: center;
-      }
-      .nav-links a {
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: var(--text-light);
-        transition: color 0.2s;
-        position: relative;
-      }
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--pink-dark);
-        transition: width 0.2s;
-      }
-      .nav-links a:hover {
-        color: var(--text);
-      }
-      .nav-links a:hover::after {
-        width: 100%;
-      }
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-      }
-      .hamburger span {
-        width: 25px;
-        height: 2px;
-        background: var(--text);
-        border-radius: 2px;
-      }
-
-      /* ===== Page Hero (inner pages) ===== */
-      .page-hero {
-        min-height: 30vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        background: linear-gradient(
-          135deg,
-          var(--pink) 0%,
-          var(--purple) 50%,
-          var(--blue) 100%
-        );
-        position: relative;
-        overflow: hidden;
-      }
-      .page-hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-          circle at 30% 40%,
-          rgba(255, 255, 255, 0.35) 0%,
-          transparent 60%
-        );
-      }
-      .page-hero .container {
-        position: relative;
-        z-index: 1;
-      }
-      .page-hero h1 {
-        font-size: 2.8rem;
-        color: #5a3e4a;
-        margin-bottom: 10px;
-      }
-      .page-hero p {
-        font-size: 1.1rem;
-        color: #6b4f5a;
-        max-width: 500px;
-        margin: 0 auto;
-      }
-
-      /* ===== Article Pages (show/hide via JS) ===== */
-      article { display: none; }
-      article.active-page { display: block; }
-
-      /* ===== Hero ===== */
-      .hero {
-        min-height: 85vh;
-        display: flex;
-        align-items: center;
-        background: linear-gradient(
-          135deg,
-          var(--pink) 0%,
-          var(--purple) 40%,
-          var(--blue) 70%,
-          var(--green) 100%
-        );
-        position: relative;
-        overflow: hidden;
-      }
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(
-            circle at 20% 50%,
-            rgba(255, 255, 255, 0.4) 0%,
-            transparent 60%
-          ),
-          radial-gradient(
-            circle at 80% 30%,
-            rgba(255, 255, 255, 0.3) 0%,
-            transparent 50%
-          );
-      }
-      .hero .container {
-        position: relative;
-        z-index: 1;
-        text-align: center;
-      }
-      .hero h1 {
-        font-size: 3.5rem;
-        line-height: 1.2;
-        margin-bottom: 16px;
-        color: #5a3e4a;
-      }
-      .hero p {
-        font-size: 1.2rem;
-        color: #6b4f5a;
-        max-width: 600px;
-        margin: 0 auto 32px;
-      }
-      .hero-buttons {
-        display: flex;
-        gap: 16px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      .btn {
-        display: inline-block;
-        padding: 14px 32px;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        transition: all 0.3s;
-        border: none;
-        cursor: pointer;
-      }
-      .btn-primary {
-        background: #b07d8b;
-        color: white;
-      }
-      .btn-primary:hover {
-        background: #9a6a78;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(176, 125, 139, 0.35);
-      }
-      .btn-secondary {
-        background: white;
-        color: #b07d8b;
-        border: 2px solid #b07d8b;
-      }
-      .btn-secondary:hover {
-        background: #fff5f7;
-        transform: translateY(-2px);
-      }
-
-      /* ===== Sections Common ===== */
-      section {
-        padding: 80px 0;
-      }
-      .section-title {
-        font-size: 2.2rem;
-        text-align: center;
-        margin-bottom: 12px;
-        color: #5a3e4a;
-      }
-      .section-subtitle {
-        text-align: center;
-        color: var(--text-light);
-        max-width: 600px;
-        margin: 0 auto 48px;
-        font-size: 1.05rem;
-      }
-
-      /* ===== Featured Bouquets / Cards Grid ===== */
-      .card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 28px;
-      }
-      .card {
-        background: var(--white);
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        transition:
-          transform 0.3s,
-          box-shadow 0.3s;
-      }
-      .card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-      }
-      .card-img {
-        height: 220px;
-        background: linear-gradient(135deg, var(--pink), var(--purple));
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 3rem;
-        color: rgba(255, 255, 255, 0.7);
-      }
-      .card-img.green {
-        background: linear-gradient(135deg, var(--green), var(--blue));
-      }
-      .card-img.yellow {
-        background: linear-gradient(135deg, var(--yellow), var(--pink));
-      }
-      .card-img.purple {
-        background: linear-gradient(135deg, var(--purple), var(--blue));
-      }
-      .card-img.pink {
-        background: linear-gradient(135deg, var(--pink), var(--yellow));
-      }
-      .card-body {
-        padding: 20px;
-      }
-      .card-body h3 {
-        font-size: 1.2rem;
-        margin-bottom: 8px;
-      }
-      .card-body p {
-        font-size: 0.9rem;
-        color: var(--text-light);
-        margin-bottom: 12px;
-      }
-      .card-price {
-        font-weight: 600;
-        color: #b07d8b;
-        font-size: 1.1rem;
-      }
-      .card-tag {
-        display: inline-block;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 500;
-        margin-right: 6px;
-        margin-bottom: 6px;
-      }
-      .tag-pink {
-        background: var(--pink);
-        color: #8a5a65;
-      }
-      .tag-purple {
-        background: var(--purple);
-        color: #6b5091;
-      }
-      .tag-green {
-        background: var(--green);
-        color: #3d7a4e;
-      }
-      .tag-blue {
-        background: var(--blue);
-        color: #3d7a8a;
-      }
-      .tag-yellow {
-        background: var(--yellow);
-        color: #8a7a3d;
-      }
-
-      /* ===== Flower Library ===== */
-      .flower-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 24px;
-      }
-      .flower-card {
-        background: var(--white);
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: var(--shadow);
-        text-align: center;
-        transition: transform 0.3s;
-      }
-      .flower-card:hover {
-        transform: translateY(-4px);
-      }
-      .flower-icon {
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 16px;
-        font-size: 2rem;
-      }
-      .flower-card h4 {
-        margin-bottom: 6px;
-      }
-      .flower-card .sci-name {
-        font-style: italic;
-        font-size: 0.8rem;
-        color: var(--text-light);
-        margin-bottom: 8px;
-      }
-      .flower-card p {
-        font-size: 0.85rem;
-        color: var(--text-light);
-      }
-
-      /* ===== Occasion ===== */
-      .occasion-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 24px;
-      }
-      .occasion-card {
-        border-radius: 16px;
-        padding: 32px 24px;
-        text-align: center;
-        box-shadow: var(--shadow);
-        transition: transform 0.3s;
-      }
-      .occasion-card:hover {
-        transform: translateY(-4px);
-      }
-      .occasion-card .emoji {
-        font-size: 2.5rem;
-        margin-bottom: 12px;
-      }
-      .occasion-card h3 {
-        margin-bottom: 8px;
-      }
-
-      /* ===== Plant Guide ===== */
-      .plant-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 24px;
-      }
-
-      /* ===== Shop / Storefront ===== */
-      .shop-grid {
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      }
-
-      /* ===== About ===== */
-      .about-content {
-        display: flex;
-        gap: 48px;
-        align-items: center;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-      .about-img {
-        flex: 0 0 300px;
-        height: 360px;
-        border-radius: 20px;
-        background: linear-gradient(
-          135deg,
-          var(--pink),
-          var(--purple),
-          var(--blue)
-        );
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 5rem;
-      }
-      .about-text {
-        flex: 1;
-      }
-      .about-text h2 {
-        font-size: 2rem;
-        margin-bottom: 16px;
-      }
-      .about-text p {
-        color: var(--text-light);
-        margin-bottom: 16px;
-      }
-
-      /* ===== Contact / Class Sign-Up ===== */
-      .contact-wrap {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 48px;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-      .form-group {
-        margin-bottom: 20px;
-      }
-      .form-group label {
-        display: block;
-        font-weight: 500;
-        margin-bottom: 6px;
-        font-size: 0.9rem;
-      }
-      .form-group input,
-      .form-group textarea,
-      .form-group select {
-        width: 100%;
-        padding: 12px 16px;
-        border: 1.5px solid #e0ddd9;
-        border-radius: 10px;
-        font-family: "Inter", sans-serif;
-        font-size: 0.95rem;
-        background: var(--white);
-        transition: border-color 0.2s;
-      }
-      .form-group input:focus,
-      .form-group textarea:focus,
-      .form-group select:focus {
-        outline: none;
-        border-color: #b07d8b;
-      }
-      .form-group textarea {
-        resize: vertical;
-        min-height: 100px;
-      }
-      .contact-info h3 {
-        font-size: 1.5rem;
-        margin-bottom: 16px;
-      }
-      .contact-info p {
-        color: var(--text-light);
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .contact-info .info-icon {
-        font-size: 1.2rem;
-      }
-
-      /* ===== Footer ===== */
-      footer {
-        background: #5a3e4a;
-        color: rgba(255, 255, 255, 0.85);
-        padding: 48px 0 24px;
-      }
-      .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 32px;
-        margin-bottom: 32px;
-      }
-      .footer-grid h4 {
-        font-size: 1.1rem;
-        margin-bottom: 12px;
-        color: white;
-      }
-      .footer-grid a {
-        display: block;
-        font-size: 0.9rem;
-        margin-bottom: 8px;
-        opacity: 0.8;
-        transition: opacity 0.2s;
-      }
-      .footer-grid a:hover {
-        opacity: 1;
-      }
-      .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.15);
-        padding-top: 20px;
-        text-align: center;
-        font-size: 0.85rem;
-        opacity: 0.7;
-      }
-
-      /* ===== Mobile ===== */
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: var(--bg);
-          flex-direction: column;
-          padding: 20px 24px;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        .nav-links.open {
-          display: flex;
-        }
-        .hamburger {
-          display: flex;
-        }
-        .hero h1 {
-          font-size: 2.4rem;
-        }
-        .hero {
-          min-height: 70vh;
-        }
-        .page-hero h1 { font-size: 2rem; }
-        .page-hero { min-height: 24vh; }
-        .about-content {
-          flex-direction: column;
-          text-align: center;
-        }
-        .about-img {
-          flex: unset;
-          width: 100%;
-          max-width: 300px;
-        }
-        .contact-wrap {
-          grid-template-columns: 1fr;
-        }
-        section {
-          padding: 56px 0;
-        }
-        .section-title {
-          font-size: 1.8rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- ===== HEADER ===== -->
-    <header>
-      <nav>
-        <a href="#page-home" class="logo">The Bud <span>&amp;</span> Bloom</a>
-        <div class="nav-links" id="navLinks">
-          <a href="#page-home">Home</a>
-          <a href="#page-learn">Learn</a>
-          <a href="#page-shop">Shop &amp; Connect</a>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">The Bud <span>&amp; Bloom</span></a>
+      <div class="header-right">
+        <nav>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="flower-library.html">Flowers</a></li>
+            <li><a href="bouquets.html">Bouquets</a></li>
+            <li><a href="holidays.html">Occasions</a></li>
+            <li><a href="plant-guide.html">Plants</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-icons">
+          <a href="shop.html" aria-label="Search">🔍</a>
+          <a href="contact.html" aria-label="Account">👤</a>
+          <a href="shop.html" aria-label="Cart">🛒</a>
         </div>
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-          <span></span><span></span><span></span>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="text-stagger">
+        <span class="word">We</span>
+        <span class="word">tell</span>
+        <span class="word">stories</span>
+        <span class="word">with</span>
+        <span class="word">flowers</span>
+      </div>
+      <p>Discover the art of floristry — learn about flowers, explore stunning bouquets, and join hands-on floral arrangement classes taught by Nely herself.</p>
+      <div class="hero-buttons">
+        <a href="flower-library.html" class="btn btn-primary">Explore Flowers</a>
+        <a href="shop.html" class="btn btn-secondary">Shop Bouquets</a>
+        <a href="contact.html" class="btn btn-ghost">Class Sign-Up →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED PRODUCTS ===== -->
+  <section class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Featured Bouquets</h2>
+      <p class="section-subtitle">Handcrafted arrangements designed to bring joy to any space.</p>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img bg-blush">🌹</div>
+          <h3>Romantic Bloom</h3>
+          <p class="product-desc">Red roses, lavender &amp; baby's breath</p>
+          <p class="price">$55.00</p>
+          <button class="btn-add" onclick="alert('Added to cart — Romantic Bloom')">Add to Cart</button>
         </div>
-      </nav>
-    </header>
-
-    <!-- ===== MAIN CONTENT ===== -->
-    <main>
-      <!-- ============================================================ -->
-      <!-- PAGE 1: HOME                                                  -->
-      <!-- ============================================================ -->
-      <article id="page-home">
-        <section class="hero">
-          <div class="container">
-            <h1>Bloom Beautifully<br />with The Bud &amp; Bloom</h1>
-            <p>
-              Discover the art of floral design — explore our flower library,
-              shop handcrafted bouquets, and sign up for in-person bouquet
-              making classes.
-            </p>
-            <div class="hero-buttons">
-              <a href="#page-shop" class="btn btn-primary">Shop Bouquets</a>
-              <a href="#page-shop" class="btn btn-secondary"
-                >Sign Up for Classes</a
-              >
-            </div>
-          </div>
-        </section>
-
-        <!-- ===== ABOUT ===== -->
-        <section id="about" style="background: var(--white)">
-          <div class="container">
-            <div class="about-content">
-              <div class="about-img">🌸</div>
-              <div class="about-text">
-                <h2>About Nely &amp; The Bud &amp; Bloom</h2>
-                <p>
-                  <strong>The Bud &amp; Bloom</strong> was born from Nely
-                  Molendyk's lifelong passion for flowers and her desire to
-                  share the art of floral design with others. What started as a
-                  small home garden has blossomed into a full-fledged flower
-                  education and bouquet shop.
-                </p>
-                <p>
-                  Nely believes that
-                  <em>everyone can learn to arrange beautiful bouquets</em>. Her
-                  hands-on classes teach the fundamentals of color theory,
-                  flower compatibility, and care techniques — giving students
-                  the confidence to create their own stunning arrangements.
-                </p>
-                <p>
-                  Whether you're shopping for a handcrafted bouquet, looking to
-                  learn a new skill, or simply want to brighten your home with
-                  plants, The Bud &amp; Bloom is here to help you grow.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ===== HOLIDAY & OCCASION ===== -->
-        <section id="occasions">
-          <div class="container">
-            <h2 class="section-title">Holiday &amp; Occasion</h2>
-            <p class="section-subtitle">
-              Seasonal collections curated for life's special moments — from
-              Valentine's Day to birthday surprises.
-            </p>
-            <div class="occasion-grid">
-              <div class="occasion-card" style="background: var(--pink)">
-                <div class="emoji">❤️</div>
-                <h3>Valentine's Day</h3>
-                <p>
-                  Classic reds and pinks — roses, peonies, and romantic accents.
-                </p>
-              </div>
-              <div class="occasion-card" style="background: var(--yellow)">
-                <div class="emoji">🎂</div>
-                <h3>Birthday</h3>
-                <p>
-                  Bright, cheerful arrangements with sunflowers, daisies, and
-                  mixed colors.
-                </p>
-              </div>
-              <div class="occasion-card" style="background: var(--green)">
-                <div class="emoji">🌷</div>
-                <h3>Spring Collection</h3>
-                <p>
-                  Fresh tulips, daffodils, and hyacinths to celebrate the season
-                  of renewal.
-                </p>
-              </div>
-              <div class="occasion-card" style="background: var(--purple)">
-                <div class="emoji">🤱</div>
-                <h3>Mother's Day</h3>
-                <p>
-                  Soft pastels and fragrant blooms — a heartfelt gift for the
-                  special women in your life.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </article>
-
-      <!-- ============================================================ -->
-      <!-- PAGE 2: LEARN                                                 -->
-      <!-- ============================================================ -->
-      <article id="page-learn">
-        <div class="page-hero">
-          <div class="container">
-            <h1>Learn About Flowers &amp; Plants</h1>
-            <p>Explore our educational guides and become a floral expert.</p>
-          </div>
+        <div class="product-card">
+          <div class="product-img bg-sage">🌻</div>
+          <h3>Sunshine Garden</h3>
+          <p class="product-desc">Sunflowers, tulips &amp; daisies</p>
+          <p class="price">$48.00</p>
+          <button class="btn-add" onclick="alert('Added to cart — Sunshine Garden')">Add to Cart</button>
         </div>
-
-        <!-- ===== FLOWER LIBRARY ===== -->
-        <section id="flower-library">
-          <div class="container">
-            <h2 class="section-title">Flower Library</h2>
-            <p class="section-subtitle">
-              Learn about your favorite blooms — growing conditions, care
-              instructions, and suggested pairings.
-            </p>
-            <div class="flower-grid">
-              <div class="flower-card">
-                <div class="flower-icon" style="background: var(--pink)">
-                  🌹
-                </div>
-                <h4>Rose</h4>
-                <p class="sci-name">Rosa</p>
-                <p>
-                  Classic romantic bloom. Prefers full sun and well-drained
-                  soil. Pairs beautifully with lavender and eucalyptus.
-                </p>
-              </div>
-              <div class="flower-card">
-                <div class="flower-icon" style="background: var(--purple)">
-                  💜
-                </div>
-                <h4>Lavender</h4>
-                <p class="sci-name">Lavandula</p>
-                <p>
-                  Fragrant and calming. Thrives in full sun with minimal water.
-                  Complements roses and daisies in arrangements.
-                </p>
-              </div>
-              <div class="flower-card">
-                <div class="flower-icon" style="background: var(--yellow)">
-                  🌻
-                </div>
-                <h4>Sunflower</h4>
-                <p class="sci-name">Helianthus</p>
-                <p>
-                  Cheerful and bold. Grows best in full sun. Pairs well with
-                  greenery and wildflowers for a rustic look.
-                </p>
-              </div>
-              <div class="flower-card">
-                <div class="flower-icon" style="background: var(--blue)">
-                  🌸
-                </div>
-                <h4>Hydrangea</h4>
-                <p class="sci-name">Hydrangea macrophylla</p>
-                <p>
-                  Lush, full blooms that love morning sun and afternoon shade.
-                  Perfect paired with peonies and roses.
-                </p>
-              </div>
-              <div class="flower-card">
-                <div class="flower-icon" style="background: var(--green)">
-                  🌷
-                </div>
-                <h4>Tulip</h4>
-                <p class="sci-name">Tulipa</p>
-                <p>
-                  Elegant spring bloom. Prefers well-drained soil and full to
-                  partial sun. Complements daffodils and hyacinths.
-                </p>
-              </div>
-              <div class="flower-card">
-                <div class="flower-icon" style="background: var(--pink)">
-                  🌼
-                </div>
-                <h4>Daisy</h4>
-                <p class="sci-name">Bellis perennis</p>
-                <p>
-                  Simple and charming. Grows in almost any condition. Adds a
-                  cheerful touch to mixed bouquets.
-                </p>
-              </div>
-              <div class="flower-card">
-                <div class="flower-icon" style="background: var(--purple)">
-                  🌺
-                </div>
-                <h4>Peony</h4>
-                <p class="sci-name">Paeonia</p>
-                <p>
-                  Luxurious, fragrant blooms. Needs full sun and cold winters.
-                  Pairs beautifully with roses and hydrangeas.
-                </p>
-              </div>
-              <div class="flower-card">
-                <div class="flower-icon" style="background: var(--yellow)">
-                  🌿
-                </div>
-                <h4>Eucalyptus</h4>
-                <p class="sci-name">Eucalyptus cinerea</p>
-                <p>
-                  Aromatic foliage favorite. Thrives in full sun. Used as a
-                  filler green in nearly every arrangement.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </article>
-      <!-- /page-learn -->
-
-      <!-- ============================================================ -->
-      <!-- PAGE 3: SHOP & CONNECT                                        -->
-      <!-- ============================================================ -->
-      <article id="page-shop">
-        <div class="page-hero">
-          <div class="container">
-            <h1>Shop &amp; Connect</h1>
-            <p>Browse bouquets, buy plants, and sign up for classes.</p>
-          </div>
+        <div class="product-card">
+          <div class="product-img bg-blush-dark">🌸</div>
+          <h3>Elegant Whisper</h3>
+          <p class="product-desc">Peonies, hydrangeas &amp; irises</p>
+          <p class="price">$65.00</p>
+          <button class="btn-add" onclick="alert('Added to cart — Elegant Whisper')">Add to Cart</button>
         </div>
-
-        <!-- ===== BOUQUET ARRANGEMENTS ===== -->
-        <section id="bouquets" style="background: var(--white)">
-          <div class="container">
-            <h2 class="section-title">Bouquet Arrangements</h2>
-            <p class="section-subtitle">
-              Handcrafted bouquets designed with love — each arrangement tells a
-              story through carefully paired blooms.
-            </p>
-            <div class="card-grid">
-              <div class="card">
-                <div class="card-img">💐</div>
-                <div class="card-body">
-                  <h3>Classic Romance</h3>
-                  <p>
-                    A timeless blend of roses, peonies, and eucalyptus wrapped
-                    in soft pink tissue.
-                  </p>
-                  <span class="card-tag tag-pink">Roses</span>
-                  <span class="card-tag tag-green">Eucalyptus</span>
-                  <div class="card-price">$55.00</div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-img green">🌻</div>
-                <div class="card-body">
-                  <h3>Sunshine &amp; Daisies</h3>
-                  <p>
-                    Bright sunflowers, yellow tulips, and white daisies — a
-                    burst of happiness in every stem.
-                  </p>
-                  <span class="card-tag tag-yellow">Sunflowers</span>
-                  <span class="card-tag tag-blue">Daisies</span>
-                  <div class="card-price">$48.00</div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-img purple">💜</div>
-                <div class="card-body">
-                  <h3>Lavender Dream</h3>
-                  <p>
-                    Fragrant lavender, purple hydrangeas, and silvery eucalyptus
-                    for a calming, elegant feel.
-                  </p>
-                  <span class="card-tag tag-purple">Lavender</span>
-                  <span class="card-tag tag-green">Eucalyptus</span>
-                  <div class="card-price">$62.00</div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-img pink">🌷</div>
-                <div class="card-body">
-                  <h3>Spring Garden</h3>
-                  <p>
-                    Tulips, daffodils, and hyacinths in a pastel palette — the
-                    essence of spring in a bouquet.
-                  </p>
-                  <span class="card-tag tag-pink">Tulips</span>
-                  <span class="card-tag tag-yellow">Daffodils</span>
-                  <div class="card-price">$44.00</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ===== SHOP / STOREFRONT ===== -->
-        <section id="shop">
-          <div class="container">
-            <h2 class="section-title">Shop</h2>
-            <p class="section-subtitle">
-              Browse our collection of bouquets and plants — ready to ship or
-              pick up. Every purchase supports local floral artistry.
-            </p>
-            <div class="shop-grid card-grid">
-              <div class="card">
-                <div class="card-img">💐</div>
-                <div class="card-body">
-                  <h3>Classic Romance Bouquet</h3>
-                  <p>
-                    Roses, peonies, and eucalyptus in a hand-wrapped bundle.
-                  </p>
-                  <div class="card-price">$55.00</div>
-                  <button
-                    class="btn btn-primary"
-                    style="width: 100%; margin-top: 12px; padding: 10px"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-img green">🌻</div>
-                <div class="card-body">
-                  <h3>Sunshine &amp; Daisies Bouquet</h3>
-                  <p>Sunflowers, tulips, and daisies — a ray of sunshine.</p>
-                  <div class="card-price">$48.00</div>
-                  <button
-                    class="btn btn-primary"
-                    style="width: 100%; margin-top: 12px; padding: 10px"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-img purple">💜</div>
-                <div class="card-body">
-                  <h3>Lavender Dream Bouquet</h3>
-                  <p>
-                    Lavender, hydrangeas, and eucalyptus in calming purples.
-                  </p>
-                  <div class="card-price">$62.00</div>
-                  <button
-                    class="btn btn-primary"
-                    style="width: 100%; margin-top: 12px; padding: 10px"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-img pink">🌷</div>
-                <div class="card-body">
-                  <h3>Spring Garden Bouquet</h3>
-                  <p>Tulips, daffodils, and hyacinths in pastel spring hues.</p>
-                  <div class="card-price">$44.00</div>
-                  <button
-                    class="btn btn-primary"
-                    style="width: 100%; margin-top: 12px; padding: 10px"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-img green">🌿</div>
-                <div class="card-body">
-                  <h3>Snake Plant (Potted)</h3>
-                  <p>Hardy, air-purifying houseplant in a ceramic pot.</p>
-                  <div class="card-price">$32.00</div>
-                  <button
-                    class="btn btn-primary"
-                    style="width: 100%; margin-top: 12px; padding: 10px"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-img yellow">🌵</div>
-                <div class="card-body">
-                  <h3>Succulent Trio</h3>
-                  <p>Three hand-picked succulents in a decorative planter.</p>
-                  <div class="card-price">$28.00</div>
-                  <button
-                    class="btn btn-primary"
-                    style="width: 100%; margin-top: 12px; padding: 10px"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ===== CONTACT / CLASS SIGN-UP ===== -->
-        <section id="contact">
-          <div class="container">
-            <h2 class="section-title">Contact &amp; Class Sign-Up</h2>
-            <p class="section-subtitle">
-              Ready to learn the art of bouquet making? Sign up for an in-person
-              class or send us a message below.
-            </p>
-            <div class="contact-wrap">
-              <form id="contactForm">
-                <div class="form-group">
-                  <label for="name">Full Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="Your name"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email">Email Address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="you@example.com"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="phone">Phone Number</label>
-                  <input type="tel" id="phone" placeholder="(555) 123-4567" />
-                </div>
-                <div class="form-group">
-                  <label for="interest">I'm interested in...</label>
-                  <select id="interest">
-                    <option>Bouquet Making Class</option>
-                    <option>Custom Bouquet Order</option>
-                    <option>Plant Purchase Inquiry</option>
-                    <option>General Question</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea
-                    id="message"
-                    placeholder="Tell us more about what you're looking for..."
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  style="width: 100%"
-                >
-                  Send Message
-                </button>
-              </form>
-              <div class="contact-info">
-                <h3>Get in Touch</h3>
-                <p>
-                  <span class="info-icon">📍</span> 123 Bloom Street,
-                  Petalville, NY 10001
-                </p>
-                <p><span class="info-icon">📞</span> (555) 234-5678</p>
-                <p>
-                  <span class="info-icon">✉️</span> hello@thebudandbloom.com
-                </p>
-                <p>
-                  <span class="info-icon">🕐</span> Mon–Sat: 9:00 AM – 6:00 PM
-                </p>
-                <br />
-                <h3>Upcoming Classes</h3>
-                <p>
-                  <strong>🌸 Spring Bouquet Basics</strong><br />Saturday, June
-                  20 · 10:00 AM – 12:00 PM · $45
-                </p>
-                <p>
-                  <strong>💐 Romantic Arrangements</strong><br />Saturday, June
-                  27 · 10:00 AM – 12:00 PM · $50
-                </p>
-                <p>
-                  <strong>🌿 Greenery &amp; Filler Workshop</strong
-                  ><br />Saturday, July 11 · 10:00 AM – 12:00 PM · $40
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </article>
-      <!-- /page-shop -->
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer>
-      <div class="container">
-        <div class="footer-grid">
-          <div>
-            <h4>The Bud &amp; Bloom</h4>
-            <p style="font-size: 0.9rem; opacity: 0.8">
-              Helping you bloom beautifully — one arrangement at a time.
-            </p>
-          </div>
-          <div>
-            <h4>Quick Links</h4>
-            <a href="#page-home">Home</a>
-            <a href="#page-learn">Learn</a>
-            <a href="#page-shop">Shop &amp; Connect</a>
-          </div>
-          <div>
-            <h4>Support</h4>
-            <a href="#page-shop">Contact Us</a>
-            <a href="#">Shipping Policy</a>
-            <a href="#">Return Policy</a>
-            <a href="#">FAQ</a>
-          </div>
-          <div>
-            <h4>Follow Us</h4>
-            <a href="#">Instagram</a>
-            <a href="#">Pinterest</a>
-            <a href="#">Facebook</a>
-            <a href="#">TikTok</a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          &copy; 2026 The Bud &amp; Bloom. All rights reserved. Designed with
-          love.
+        <div class="product-card">
+          <div class="product-img bg-sage-dark">🌼</div>
+          <h3>Meadow Fresh</h3>
+          <p class="product-desc">Daisies, lavender &amp; eucalyptus</p>
+          <p class="price">$42.00</p>
+          <button class="btn-add" onclick="alert('Added to cart — Meadow Fresh')">Add to Cart</button>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script>
-      // Page navigation
-      function showPage(pageId) {
-        document.querySelectorAll("article").forEach((a) => a.classList.remove("active-page"));
-        document.getElementById(pageId).classList.add("active-page");
-        // Close mobile menu
-        document.getElementById("navLinks").classList.remove("open");
-      }
+  <!-- ===== OCCASIONS ===== -->
+  <section class="section" style="padding-top: 0;">
+    <div class="section-inner">
+      <h2 class="section-title">Shop by Occasion</h2>
+      <p class="section-subtitle">Find the perfect arrangement for life's special moments.</p>
+      <div class="occasion-grid">
+        <a href="holidays.html" class="occasion-card bg-occasion-1">
+          <span class="occasion-icon">❤️</span>
+          <span class="occasion-label">Valentine's</span>
+        </a>
+        <a href="holidays.html" class="occasion-card bg-occasion-2">
+          <span class="occasion-icon">💐</span>
+          <span class="occasion-label">Mother's Day</span>
+        </a>
+        <a href="holidays.html" class="occasion-card bg-occasion-3">
+          <span class="occasion-icon">🐣</span>
+          <span class="occasion-label">Easter</span>
+        </a>
+        <a href="holidays.html" class="occasion-card bg-occasion-4">
+          <span class="occasion-icon">💍</span>
+          <span class="occasion-label">Weddings</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-      // Mobile menu toggle
-      function toggleMenu() {
-        document.getElementById("navLinks").classList.toggle("open");
-      }
+  <!-- ===== SERVICES ===== -->
+  <section class="cta-section">
+    <h2>Floral Arrangement Classes</h2>
+    <p>Join Nely in our welcoming studio for hands-on bouquet making classes. All materials provided — you leave with your own beautiful creation.</p>
+    <a href="contact.html" class="btn btn-primary">Sign Up Today</a>
+  </section>
 
-      // Set up nav click handlers
-      document.addEventListener("DOMContentLoaded", () => {
-        // Show home by default
-        showPage("page-home");
+  <!-- ===== OUR STORY PREVIEW ===== -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="about-layout">
+        <div class="about-image">🌺</div>
+        <div class="about-text">
+          <h2>Our Story</h2>
+          <p>The Bud &amp; Bloom was born from Nely Molendyk's lifelong passion for flowers and her desire to share that joy with others. What started as a small garden of colorful blooms has blossomed into a full-fledged flower education and bouquet shop.</p>
+          <p>Nely believes that everyone has the ability to create something beautiful — they just need the right guidance, the right flowers, and a little bit of inspiration.</p>
+          <a href="about.html" class="btn btn-ghost" style="margin-top: 0.5rem;">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Nav link clicks
-        document.querySelectorAll(".nav-links a").forEach((link) => {
-          link.addEventListener("click", (e) => {
-            const href = link.getAttribute("href");
-            if (href.startsWith("#page-")) {
-              e.preventDefault();
-              showPage(href.substring(1));
-            }
-          });
-        });
+  <!-- ===== INSTAGRAM ===== -->
+  <section>
+    <div class="instagram-grid">
+      <div class="instagram-item">🌹</div>
+      <div class="instagram-item">🌻</div>
+      <div class="instagram-item">🌸</div>
+      <div class="instagram-item">🌷</div>
+      <div class="instagram-item">🌼</div>
+      <div class="instagram-item">💐</div>
+    </div>
+  </section>
 
-        // Footer and CTA link clicks
-        document.querySelectorAll("a[href^='#page-']").forEach((link) => {
-          link.addEventListener("click", (e) => {
-            e.preventDefault();
-            showPage(link.getAttribute("href").substring(1));
-          });
-        });
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>The Bud &amp; Bloom</h3>
+        <p>Flower education, beautifully curated bouquets, and hands-on floral arrangement classes. Let your creativity bloom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="flower-library.html">Flowers</a></li>
+          <li><a href="bouquets.html">Bouquets</a></li>
+          <li><a href="holidays.html">Occasions</a></li>
+          <li><a href="plant-guide.html">Plants</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="bouquets.html">Bouquets</a></li>
+          <li><a href="plant-guide.html">Plants</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Class Sign-Up</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Bud &amp; Bloom. All rights reserved. Designed with love for Nely Molendyk.</p>
+    </div>
+  </footer>
 
-        // Form submission
-        document.getElementById("contactForm").addEventListener("submit", function (e) {
-          e.preventDefault();
-          const btn = this.querySelector('button[type="submit"]');
-          const original = btn.textContent;
-          btn.textContent = "✓ Message Sent!";
-          btn.style.background = "#a8d5b5";
-          setTimeout(() => {
-            btn.textContent = original;
-            btn.style.background = "";
-            this.reset();
-          }, 3000);
-        });
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function () {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
 
-        // "Add to Cart" buttons
-        document.querySelectorAll(".shop-grid .btn-primary").forEach((btn) => {
-          btn.addEventListener("click", function () {
-            const original = this.textContent;
-            this.textContent = "✓ Added to Cart!";
-            this.style.background = "#a8d5b5";
-            setTimeout(() => {
-              this.textContent = original;
-              this.style.background = "";
-            }, 2000);
-          });
-        });
-      });
-    </script>
-  </body>
+</body>
 </html>
