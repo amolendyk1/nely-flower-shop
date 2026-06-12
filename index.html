@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Bud &amp; Bloom — Flower Education &amp; Bouquet Shop</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f8d7da'/%3E%3Cstop offset='100%25' stop-color='%23e8b4b8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cline x1='32' y1='38' x2='32' y2='56' stroke='%23a8d5b5' stroke-width='4' stroke-linecap='round'/%3E%3Cellipse cx='22' cy='48' rx='6' ry='3' fill='%23a8d5b5' transform='rotate(-30 22 48)'/%3E%3Ccircle cx='32' cy='22' r='8' fill='url(%23g)'/%3E%3Ccircle cx='24' cy='28' r='7' fill='url(%23g)'/%3E%3Ccircle cx='40' cy='28' r='7' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='34' r='7' fill='url(%23g)'/%3E%3Ccircle cx='36' cy='34' r='7' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='30' r='5' fill='%23fff3cd'/%3E%3C/svg%3E" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f8d7da'/%3E%3Cstop offset='100%25' stop-color='%23e8b4b8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cline x1='32' y1='38' x2='32' y2='56' stroke='%23a8d5b5' stroke-width='4' stroke-linecap='round'/%3E%3Cellipse cx='22' cy='48' rx='6' ry='3' fill='%23a8d5b5' transform='rotate(-30 22 48)'/%3E%3Ccircle cx='32' cy='22' r='8' fill='url(%23g)'/%3E%3Ccircle cx='24' cy='28' r='7' fill='url(%23g)'/%3E%3Ccircle cx='40' cy='28' r='7' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='34' r='7' fill='url(%23g)'/%3E%3Ccircle cx='36' cy='34' r='7' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='30' r='5' fill='%23fff3cd'/%3E%3C/svg%3E"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -139,6 +143,52 @@
         background: var(--text);
         border-radius: 2px;
       }
+
+      /* ===== Page Hero (inner pages) ===== */
+      .page-hero {
+        min-height: 30vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          var(--pink) 0%,
+          var(--purple) 50%,
+          var(--blue) 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 30% 40%,
+          rgba(255, 255, 255, 0.35) 0%,
+          transparent 60%
+        );
+      }
+      .page-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-hero h1 {
+        font-size: 2.8rem;
+        color: #5a3e4a;
+        margin-bottom: 10px;
+      }
+      .page-hero p {
+        font-size: 1.1rem;
+        color: #6b4f5a;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      /* ===== Article Pages (show/hide via JS) ===== */
+      article { display: none; }
+      article.active-page { display: block; }
 
       /* ===== Hero ===== */
       .hero {
@@ -554,6 +604,8 @@
         .hero {
           min-height: 70vh;
         }
+        .page-hero h1 { font-size: 2rem; }
+        .page-hero { min-height: 24vh; }
         .about-content {
           flex-direction: column;
           text-align: center;
@@ -579,15 +631,11 @@
     <!-- ===== HEADER ===== -->
     <header>
       <nav>
-        <a href="#" class="logo">The Bud <span>&amp;</span> Bloom</a>
+        <a href="#page-home" class="logo">The Bud <span>&amp;</span> Bloom</a>
         <div class="nav-links" id="navLinks">
-          <a href="#flower-library">Flowers</a>
-          <a href="#bouquets">Bouquets</a>
-          <a href="#occasions">Occasions</a>
-          <a href="#plants">Plants</a>
-          <a href="#shop">Shop</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <a href="#page-home">Home</a>
+          <a href="#page-learn">Learn</a>
+          <a href="#page-shop">Shop &amp; Connect</a>
         </div>
         <div class="hamburger" id="hamburger" onclick="toggleMenu()">
           <span></span><span></span><span></span>
@@ -595,478 +643,486 @@
       </nav>
     </header>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero" id="home">
-      <div class="container">
-        <h1>Bloom Beautifully<br />with The Bud &amp; Bloom</h1>
-        <p>
-          Discover the art of floral design — explore our flower library, shop
-          handcrafted bouquets, and sign up for in-person bouquet making
-          classes.
-        </p>
-        <div class="hero-buttons">
-          <a href="#shop" class="btn btn-primary">Shop Bouquets</a>
-          <a href="#contact" class="btn btn-secondary">Sign Up for Classes</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== FLOWER LIBRARY ===== -->
-    <section id="flower-library">
-      <div class="container">
-        <h2 class="section-title">Flower Library</h2>
-        <p class="section-subtitle">
-          Learn about your favorite blooms — growing conditions, care
-          instructions, and suggested pairings.
-        </p>
-        <div class="flower-grid">
-          <div class="flower-card">
-            <div class="flower-icon" style="background: var(--pink)">🌹</div>
-            <h4>Rose</h4>
-            <p class="sci-name">Rosa</p>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+      <!-- ============================================================ -->
+      <!-- PAGE 1: HOME                                                  -->
+      <!-- ============================================================ -->
+      <article id="page-home">
+        <section class="hero">
+          <div class="container">
+            <h1>Bloom Beautifully<br />with The Bud &amp; Bloom</h1>
             <p>
-              Classic romantic bloom. Prefers full sun and well-drained soil.
-              Pairs beautifully with lavender and eucalyptus.
+              Discover the art of floral design — explore our flower library,
+              shop handcrafted bouquets, and sign up for in-person bouquet
+              making classes.
             </p>
-          </div>
-          <div class="flower-card">
-            <div class="flower-icon" style="background: var(--purple)">💜</div>
-            <h4>Lavender</h4>
-            <p class="sci-name">Lavandula</p>
-            <p>
-              Fragrant and calming. Thrives in full sun with minimal water.
-              Complements roses and daisies in arrangements.
-            </p>
-          </div>
-          <div class="flower-card">
-            <div class="flower-icon" style="background: var(--yellow)">🌻</div>
-            <h4>Sunflower</h4>
-            <p class="sci-name">Helianthus</p>
-            <p>
-              Cheerful and bold. Grows best in full sun. Pairs well with
-              greenery and wildflowers for a rustic look.
-            </p>
-          </div>
-          <div class="flower-card">
-            <div class="flower-icon" style="background: var(--blue)">🌸</div>
-            <h4>Hydrangea</h4>
-            <p class="sci-name">Hydrangea macrophylla</p>
-            <p>
-              Lush, full blooms that love morning sun and afternoon shade.
-              Perfect paired with peonies and roses.
-            </p>
-          </div>
-          <div class="flower-card">
-            <div class="flower-icon" style="background: var(--green)">🌷</div>
-            <h4>Tulip</h4>
-            <p class="sci-name">Tulipa</p>
-            <p>
-              Elegant spring bloom. Prefers well-drained soil and full to
-              partial sun. Complements daffodils and hyacinths.
-            </p>
-          </div>
-          <div class="flower-card">
-            <div class="flower-icon" style="background: var(--pink)">🌼</div>
-            <h4>Daisy</h4>
-            <p class="sci-name">Bellis perennis</p>
-            <p>
-              Simple and charming. Grows in almost any condition. Adds a
-              cheerful touch to mixed bouquets.
-            </p>
-          </div>
-          <div class="flower-card">
-            <div class="flower-icon" style="background: var(--purple)">🌺</div>
-            <h4>Peony</h4>
-            <p class="sci-name">Paeonia</p>
-            <p>
-              Luxurious, fragrant blooms. Needs full sun and cold winters. Pairs
-              beautifully with roses and hydrangeas.
-            </p>
-          </div>
-          <div class="flower-card">
-            <div class="flower-icon" style="background: var(--yellow)">🌿</div>
-            <h4>Eucalyptus</h4>
-            <p class="sci-name">Eucalyptus cinerea</p>
-            <p>
-              Aromatic foliage favorite. Thrives in full sun. Used as a filler
-              green in nearly every arrangement.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== BOUQUET ARRANGEMENTS ===== -->
-    <section id="bouquets" style="background: var(--white)">
-      <div class="container">
-        <h2 class="section-title">Bouquet Arrangements</h2>
-        <p class="section-subtitle">
-          Handcrafted bouquets designed with love — each arrangement tells a
-          story through carefully paired blooms.
-        </p>
-        <div class="card-grid">
-          <div class="card">
-            <div class="card-img">💐</div>
-            <div class="card-body">
-              <h3>Classic Romance</h3>
-              <p>
-                A timeless blend of roses, peonies, and eucalyptus wrapped in
-                soft pink tissue.
-              </p>
-              <span class="card-tag tag-pink">Roses</span>
-              <span class="card-tag tag-green">Eucalyptus</span>
-              <div class="card-price">$55.00</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img green">🌻</div>
-            <div class="card-body">
-              <h3>Sunshine &amp; Daisies</h3>
-              <p>
-                Bright sunflowers, yellow tulips, and white daisies — a burst of
-                happiness in every stem.
-              </p>
-              <span class="card-tag tag-yellow">Sunflowers</span>
-              <span class="card-tag tag-blue">Daisies</span>
-              <div class="card-price">$48.00</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img purple">💜</div>
-            <div class="card-body">
-              <h3>Lavender Dream</h3>
-              <p>
-                Fragrant lavender, purple hydrangeas, and silvery eucalyptus for
-                a calming, elegant feel.
-              </p>
-              <span class="card-tag tag-purple">Lavender</span>
-              <span class="card-tag tag-green">Eucalyptus</span>
-              <div class="card-price">$62.00</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img pink">🌷</div>
-            <div class="card-body">
-              <h3>Spring Garden</h3>
-              <p>
-                Tulips, daffodils, and hyacinths in a pastel palette — the
-                essence of spring in a bouquet.
-              </p>
-              <span class="card-tag tag-pink">Tulips</span>
-              <span class="card-tag tag-yellow">Daffodils</span>
-              <div class="card-price">$44.00</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== HOLIDAY & OCCASION ===== -->
-    <section id="occasions">
-      <div class="container">
-        <h2 class="section-title">Holiday &amp; Occasion</h2>
-        <p class="section-subtitle">
-          Seasonal collections curated for life's special moments — from
-          Valentine's Day to birthday surprises.
-        </p>
-        <div class="occasion-grid">
-          <div class="occasion-card" style="background: var(--pink)">
-            <div class="emoji">❤️</div>
-            <h3>Valentine's Day</h3>
-            <p>
-              Classic reds and pinks — roses, peonies, and romantic accents.
-            </p>
-          </div>
-          <div class="occasion-card" style="background: var(--yellow)">
-            <div class="emoji">🎂</div>
-            <h3>Birthday</h3>
-            <p>
-              Bright, cheerful arrangements with sunflowers, daisies, and mixed
-              colors.
-            </p>
-          </div>
-          <div class="occasion-card" style="background: var(--green)">
-            <div class="emoji">🌷</div>
-            <h3>Spring Collection</h3>
-            <p>
-              Fresh tulips, daffodils, and hyacinths to celebrate the season of
-              renewal.
-            </p>
-          </div>
-          <div class="occasion-card" style="background: var(--purple)">
-            <div class="emoji">🤱</div>
-            <h3>Mother's Day</h3>
-            <p>
-              Soft pastels and fragrant blooms — a heartfelt gift for the
-              special women in your life.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PLANT GUIDE ===== -->
-    <section id="plants" style="background: var(--white)">
-      <div class="container">
-        <h2 class="section-title">Plant Guide</h2>
-        <p class="section-subtitle">
-          Everything you need to know about caring for your plants — from
-          sunlight needs to watering schedules.
-        </p>
-        <div class="plant-grid card-grid">
-          <div class="card">
-            <div class="card-img green">🌿</div>
-            <div class="card-body">
-              <h3>Snake Plant</h3>
-              <p>
-                Thrives in low light with minimal water. Perfect for beginners.
-                Air-purifying and resilient.
-              </p>
-              <span class="card-tag tag-green">Low Light</span>
-              <span class="card-tag tag-blue">Easy Care</span>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img">🌱</div>
-            <div class="card-body">
-              <h3>Monstera</h3>
-              <p>
-                Loves bright, indirect light and moderate watering. Iconic split
-                leaves add tropical vibes.
-              </p>
-              <span class="card-tag tag-green">Indirect Light</span>
-              <span class="card-tag tag-purple">Tropical</span>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img yellow">🌵</div>
-            <div class="card-body">
-              <h3>Succulent Collection</h3>
-              <p>
-                Drought-tolerant and sun-loving. Water sparingly. Ideal for
-                sunny windowsills.
-              </p>
-              <span class="card-tag tag-yellow">Full Sun</span>
-              <span class="card-tag tag-green">Low Water</span>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img purple">🍃</div>
-            <div class="card-body">
-              <h3>Peace Lily</h3>
-              <p>
-                Elegant white blooms. Prefers shade and consistent moisture.
-                Excellent air purifier.
-              </p>
-              <span class="card-tag tag-purple">Shade</span>
-              <span class="card-tag tag-blue">Flowering</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SHOP / STOREFRONT ===== -->
-    <section id="shop">
-      <div class="container">
-        <h2 class="section-title">Shop</h2>
-        <p class="section-subtitle">
-          Browse our collection of bouquets and plants — ready to ship or pick
-          up. Every purchase supports local floral artistry.
-        </p>
-        <div class="shop-grid card-grid">
-          <div class="card">
-            <div class="card-img">💐</div>
-            <div class="card-body">
-              <h3>Classic Romance Bouquet</h3>
-              <p>Roses, peonies, and eucalyptus in a hand-wrapped bundle.</p>
-              <div class="card-price">$55.00</div>
-              <button
-                class="btn btn-primary"
-                style="width: 100%; margin-top: 12px; padding: 10px"
+            <div class="hero-buttons">
+              <a href="#page-shop" class="btn btn-primary">Shop Bouquets</a>
+              <a href="#page-shop" class="btn btn-secondary"
+                >Sign Up for Classes</a
               >
-                Add to Cart
-              </button>
             </div>
           </div>
-          <div class="card">
-            <div class="card-img green">🌻</div>
-            <div class="card-body">
-              <h3>Sunshine &amp; Daisies Bouquet</h3>
-              <p>Sunflowers, tulips, and daisies — a ray of sunshine.</p>
-              <div class="card-price">$48.00</div>
-              <button
-                class="btn btn-primary"
-                style="width: 100%; margin-top: 12px; padding: 10px"
-              >
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img purple">💜</div>
-            <div class="card-body">
-              <h3>Lavender Dream Bouquet</h3>
-              <p>Lavender, hydrangeas, and eucalyptus in calming purples.</p>
-              <div class="card-price">$62.00</div>
-              <button
-                class="btn btn-primary"
-                style="width: 100%; margin-top: 12px; padding: 10px"
-              >
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img pink">🌷</div>
-            <div class="card-body">
-              <h3>Spring Garden Bouquet</h3>
-              <p>Tulips, daffodils, and hyacinths in pastel spring hues.</p>
-              <div class="card-price">$44.00</div>
-              <button
-                class="btn btn-primary"
-                style="width: 100%; margin-top: 12px; padding: 10px"
-              >
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img green">🌿</div>
-            <div class="card-body">
-              <h3>Snake Plant (Potted)</h3>
-              <p>Hardy, air-purifying houseplant in a ceramic pot.</p>
-              <div class="card-price">$32.00</div>
-              <button
-                class="btn btn-primary"
-                style="width: 100%; margin-top: 12px; padding: 10px"
-              >
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img yellow">🌵</div>
-            <div class="card-body">
-              <h3>Succulent Trio</h3>
-              <p>Three hand-picked succulents in a decorative planter.</p>
-              <div class="card-price">$28.00</div>
-              <button
-                class="btn btn-primary"
-                style="width: 100%; margin-top: 12px; padding: 10px"
-              >
-                Add to Cart
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- ===== ABOUT ===== -->
-    <section id="about" style="background: var(--white)">
-      <div class="container">
-        <div class="about-content">
-          <div class="about-img">🌸</div>
-          <div class="about-text">
-            <h2>About Nely &amp; The Bud &amp; Bloom</h2>
-            <p>
-              <strong>The Bud &amp; Bloom</strong> was born from Nely Molendyk's
-              lifelong passion for flowers and her desire to share the art of
-              floral design with others. What started as a small home garden has
-              blossomed into a full-fledged flower education and bouquet shop.
-            </p>
-            <p>
-              Nely believes that
-              <em>everyone can learn to arrange beautiful bouquets</em>. Her
-              hands-on classes teach the fundamentals of color theory, flower
-              compatibility, and care techniques — giving students the
-              confidence to create their own stunning arrangements.
-            </p>
-            <p>
-              Whether you're shopping for a handcrafted bouquet, looking to
-              learn a new skill, or simply want to brighten your home with
-              plants, The Bud &amp; Bloom is here to help you grow.
-            </p>
+        <!-- ===== ABOUT ===== -->
+        <section id="about" style="background: var(--white)">
+          <div class="container">
+            <div class="about-content">
+              <div class="about-img">🌸</div>
+              <div class="about-text">
+                <h2>About Nely &amp; The Bud &amp; Bloom</h2>
+                <p>
+                  <strong>The Bud &amp; Bloom</strong> was born from Nely
+                  Molendyk's lifelong passion for flowers and her desire to
+                  share the art of floral design with others. What started as a
+                  small home garden has blossomed into a full-fledged flower
+                  education and bouquet shop.
+                </p>
+                <p>
+                  Nely believes that
+                  <em>everyone can learn to arrange beautiful bouquets</em>. Her
+                  hands-on classes teach the fundamentals of color theory,
+                  flower compatibility, and care techniques — giving students
+                  the confidence to create their own stunning arrangements.
+                </p>
+                <p>
+                  Whether you're shopping for a handcrafted bouquet, looking to
+                  learn a new skill, or simply want to brighten your home with
+                  plants, The Bud &amp; Bloom is here to help you grow.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- ===== CONTACT / CLASS SIGN-UP ===== -->
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact &amp; Class Sign-Up</h2>
-        <p class="section-subtitle">
-          Ready to learn the art of bouquet making? Sign up for an in-person
-          class or send us a message below.
-        </p>
-        <div class="contact-wrap">
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" placeholder="Your name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" placeholder="(555) 123-4567" />
-            </div>
-            <div class="form-group">
-              <label for="interest">I'm interested in...</label>
-              <select id="interest">
-                <option>Bouquet Making Class</option>
-                <option>Custom Bouquet Order</option>
-                <option>Plant Purchase Inquiry</option>
-                <option>General Question</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                placeholder="Tell us more about what you're looking for..."
-              ></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%">
-              Send Message
-            </button>
-          </form>
-          <div class="contact-info">
-            <h3>Get in Touch</h3>
-            <p>
-              <span class="info-icon">📍</span> 123 Bloom Street, Petalville, NY
-              10001
+        <!-- ===== HOLIDAY & OCCASION ===== -->
+        <section id="occasions">
+          <div class="container">
+            <h2 class="section-title">Holiday &amp; Occasion</h2>
+            <p class="section-subtitle">
+              Seasonal collections curated for life's special moments — from
+              Valentine's Day to birthday surprises.
             </p>
-            <p><span class="info-icon">📞</span> (555) 234-5678</p>
-            <p><span class="info-icon">✉️</span> hello@thebudandbloom.com</p>
-            <p><span class="info-icon">🕐</span> Mon–Sat: 9:00 AM – 6:00 PM</p>
-            <br />
-            <h3>Upcoming Classes</h3>
-            <p>
-              <strong>🌸 Spring Bouquet Basics</strong><br />Saturday, June 20 ·
-              10:00 AM – 12:00 PM · $45
-            </p>
-            <p>
-              <strong>💐 Romantic Arrangements</strong><br />Saturday, June 27 ·
-              10:00 AM – 12:00 PM · $50
-            </p>
-            <p>
-              <strong>🌿 Greenery &amp; Filler Workshop</strong><br />Saturday,
-              July 11 · 10:00 AM – 12:00 PM · $40
-            </p>
+            <div class="occasion-grid">
+              <div class="occasion-card" style="background: var(--pink)">
+                <div class="emoji">❤️</div>
+                <h3>Valentine's Day</h3>
+                <p>
+                  Classic reds and pinks — roses, peonies, and romantic accents.
+                </p>
+              </div>
+              <div class="occasion-card" style="background: var(--yellow)">
+                <div class="emoji">🎂</div>
+                <h3>Birthday</h3>
+                <p>
+                  Bright, cheerful arrangements with sunflowers, daisies, and
+                  mixed colors.
+                </p>
+              </div>
+              <div class="occasion-card" style="background: var(--green)">
+                <div class="emoji">🌷</div>
+                <h3>Spring Collection</h3>
+                <p>
+                  Fresh tulips, daffodils, and hyacinths to celebrate the season
+                  of renewal.
+                </p>
+              </div>
+              <div class="occasion-card" style="background: var(--purple)">
+                <div class="emoji">🤱</div>
+                <h3>Mother's Day</h3>
+                <p>
+                  Soft pastels and fragrant blooms — a heartfelt gift for the
+                  special women in your life.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <!-- ============================================================ -->
+      <!-- PAGE 2: LEARN                                                 -->
+      <!-- ============================================================ -->
+      <article id="page-learn">
+        <div class="page-hero">
+          <div class="container">
+            <h1>Learn About Flowers &amp; Plants</h1>
+            <p>Explore our educational guides and become a floral expert.</p>
           </div>
         </div>
-      </div>
-    </section>
+
+        <!-- ===== FLOWER LIBRARY ===== -->
+        <section id="flower-library">
+          <div class="container">
+            <h2 class="section-title">Flower Library</h2>
+            <p class="section-subtitle">
+              Learn about your favorite blooms — growing conditions, care
+              instructions, and suggested pairings.
+            </p>
+            <div class="flower-grid">
+              <div class="flower-card">
+                <div class="flower-icon" style="background: var(--pink)">
+                  🌹
+                </div>
+                <h4>Rose</h4>
+                <p class="sci-name">Rosa</p>
+                <p>
+                  Classic romantic bloom. Prefers full sun and well-drained
+                  soil. Pairs beautifully with lavender and eucalyptus.
+                </p>
+              </div>
+              <div class="flower-card">
+                <div class="flower-icon" style="background: var(--purple)">
+                  💜
+                </div>
+                <h4>Lavender</h4>
+                <p class="sci-name">Lavandula</p>
+                <p>
+                  Fragrant and calming. Thrives in full sun with minimal water.
+                  Complements roses and daisies in arrangements.
+                </p>
+              </div>
+              <div class="flower-card">
+                <div class="flower-icon" style="background: var(--yellow)">
+                  🌻
+                </div>
+                <h4>Sunflower</h4>
+                <p class="sci-name">Helianthus</p>
+                <p>
+                  Cheerful and bold. Grows best in full sun. Pairs well with
+                  greenery and wildflowers for a rustic look.
+                </p>
+              </div>
+              <div class="flower-card">
+                <div class="flower-icon" style="background: var(--blue)">
+                  🌸
+                </div>
+                <h4>Hydrangea</h4>
+                <p class="sci-name">Hydrangea macrophylla</p>
+                <p>
+                  Lush, full blooms that love morning sun and afternoon shade.
+                  Perfect paired with peonies and roses.
+                </p>
+              </div>
+              <div class="flower-card">
+                <div class="flower-icon" style="background: var(--green)">
+                  🌷
+                </div>
+                <h4>Tulip</h4>
+                <p class="sci-name">Tulipa</p>
+                <p>
+                  Elegant spring bloom. Prefers well-drained soil and full to
+                  partial sun. Complements daffodils and hyacinths.
+                </p>
+              </div>
+              <div class="flower-card">
+                <div class="flower-icon" style="background: var(--pink)">
+                  🌼
+                </div>
+                <h4>Daisy</h4>
+                <p class="sci-name">Bellis perennis</p>
+                <p>
+                  Simple and charming. Grows in almost any condition. Adds a
+                  cheerful touch to mixed bouquets.
+                </p>
+              </div>
+              <div class="flower-card">
+                <div class="flower-icon" style="background: var(--purple)">
+                  🌺
+                </div>
+                <h4>Peony</h4>
+                <p class="sci-name">Paeonia</p>
+                <p>
+                  Luxurious, fragrant blooms. Needs full sun and cold winters.
+                  Pairs beautifully with roses and hydrangeas.
+                </p>
+              </div>
+              <div class="flower-card">
+                <div class="flower-icon" style="background: var(--yellow)">
+                  🌿
+                </div>
+                <h4>Eucalyptus</h4>
+                <p class="sci-name">Eucalyptus cinerea</p>
+                <p>
+                  Aromatic foliage favorite. Thrives in full sun. Used as a
+                  filler green in nearly every arrangement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+      <!-- /page-learn -->
+
+      <!-- ============================================================ -->
+      <!-- PAGE 3: SHOP & CONNECT                                        -->
+      <!-- ============================================================ -->
+      <article id="page-shop">
+        <div class="page-hero">
+          <div class="container">
+            <h1>Shop &amp; Connect</h1>
+            <p>Browse bouquets, buy plants, and sign up for classes.</p>
+          </div>
+        </div>
+
+        <!-- ===== BOUQUET ARRANGEMENTS ===== -->
+        <section id="bouquets" style="background: var(--white)">
+          <div class="container">
+            <h2 class="section-title">Bouquet Arrangements</h2>
+            <p class="section-subtitle">
+              Handcrafted bouquets designed with love — each arrangement tells a
+              story through carefully paired blooms.
+            </p>
+            <div class="card-grid">
+              <div class="card">
+                <div class="card-img">💐</div>
+                <div class="card-body">
+                  <h3>Classic Romance</h3>
+                  <p>
+                    A timeless blend of roses, peonies, and eucalyptus wrapped
+                    in soft pink tissue.
+                  </p>
+                  <span class="card-tag tag-pink">Roses</span>
+                  <span class="card-tag tag-green">Eucalyptus</span>
+                  <div class="card-price">$55.00</div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-img green">🌻</div>
+                <div class="card-body">
+                  <h3>Sunshine &amp; Daisies</h3>
+                  <p>
+                    Bright sunflowers, yellow tulips, and white daisies — a
+                    burst of happiness in every stem.
+                  </p>
+                  <span class="card-tag tag-yellow">Sunflowers</span>
+                  <span class="card-tag tag-blue">Daisies</span>
+                  <div class="card-price">$48.00</div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-img purple">💜</div>
+                <div class="card-body">
+                  <h3>Lavender Dream</h3>
+                  <p>
+                    Fragrant lavender, purple hydrangeas, and silvery eucalyptus
+                    for a calming, elegant feel.
+                  </p>
+                  <span class="card-tag tag-purple">Lavender</span>
+                  <span class="card-tag tag-green">Eucalyptus</span>
+                  <div class="card-price">$62.00</div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-img pink">🌷</div>
+                <div class="card-body">
+                  <h3>Spring Garden</h3>
+                  <p>
+                    Tulips, daffodils, and hyacinths in a pastel palette — the
+                    essence of spring in a bouquet.
+                  </p>
+                  <span class="card-tag tag-pink">Tulips</span>
+                  <span class="card-tag tag-yellow">Daffodils</span>
+                  <div class="card-price">$44.00</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SHOP / STOREFRONT ===== -->
+        <section id="shop">
+          <div class="container">
+            <h2 class="section-title">Shop</h2>
+            <p class="section-subtitle">
+              Browse our collection of bouquets and plants — ready to ship or
+              pick up. Every purchase supports local floral artistry.
+            </p>
+            <div class="shop-grid card-grid">
+              <div class="card">
+                <div class="card-img">💐</div>
+                <div class="card-body">
+                  <h3>Classic Romance Bouquet</h3>
+                  <p>
+                    Roses, peonies, and eucalyptus in a hand-wrapped bundle.
+                  </p>
+                  <div class="card-price">$55.00</div>
+                  <button
+                    class="btn btn-primary"
+                    style="width: 100%; margin-top: 12px; padding: 10px"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-img green">🌻</div>
+                <div class="card-body">
+                  <h3>Sunshine &amp; Daisies Bouquet</h3>
+                  <p>Sunflowers, tulips, and daisies — a ray of sunshine.</p>
+                  <div class="card-price">$48.00</div>
+                  <button
+                    class="btn btn-primary"
+                    style="width: 100%; margin-top: 12px; padding: 10px"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-img purple">💜</div>
+                <div class="card-body">
+                  <h3>Lavender Dream Bouquet</h3>
+                  <p>
+                    Lavender, hydrangeas, and eucalyptus in calming purples.
+                  </p>
+                  <div class="card-price">$62.00</div>
+                  <button
+                    class="btn btn-primary"
+                    style="width: 100%; margin-top: 12px; padding: 10px"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-img pink">🌷</div>
+                <div class="card-body">
+                  <h3>Spring Garden Bouquet</h3>
+                  <p>Tulips, daffodils, and hyacinths in pastel spring hues.</p>
+                  <div class="card-price">$44.00</div>
+                  <button
+                    class="btn btn-primary"
+                    style="width: 100%; margin-top: 12px; padding: 10px"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-img green">🌿</div>
+                <div class="card-body">
+                  <h3>Snake Plant (Potted)</h3>
+                  <p>Hardy, air-purifying houseplant in a ceramic pot.</p>
+                  <div class="card-price">$32.00</div>
+                  <button
+                    class="btn btn-primary"
+                    style="width: 100%; margin-top: 12px; padding: 10px"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-img yellow">🌵</div>
+                <div class="card-body">
+                  <h3>Succulent Trio</h3>
+                  <p>Three hand-picked succulents in a decorative planter.</p>
+                  <div class="card-price">$28.00</div>
+                  <button
+                    class="btn btn-primary"
+                    style="width: 100%; margin-top: 12px; padding: 10px"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== CONTACT / CLASS SIGN-UP ===== -->
+        <section id="contact">
+          <div class="container">
+            <h2 class="section-title">Contact &amp; Class Sign-Up</h2>
+            <p class="section-subtitle">
+              Ready to learn the art of bouquet making? Sign up for an in-person
+              class or send us a message below.
+            </p>
+            <div class="contact-wrap">
+              <form id="contactForm">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" placeholder="(555) 123-4567" />
+                </div>
+                <div class="form-group">
+                  <label for="interest">I'm interested in...</label>
+                  <select id="interest">
+                    <option>Bouquet Making Class</option>
+                    <option>Custom Bouquet Order</option>
+                    <option>Plant Purchase Inquiry</option>
+                    <option>General Question</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    placeholder="Tell us more about what you're looking for..."
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  style="width: 100%"
+                >
+                  Send Message
+                </button>
+              </form>
+              <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>
+                  <span class="info-icon">📍</span> 123 Bloom Street,
+                  Petalville, NY 10001
+                </p>
+                <p><span class="info-icon">📞</span> (555) 234-5678</p>
+                <p>
+                  <span class="info-icon">✉️</span> hello@thebudandbloom.com
+                </p>
+                <p>
+                  <span class="info-icon">🕐</span> Mon–Sat: 9:00 AM – 6:00 PM
+                </p>
+                <br />
+                <h3>Upcoming Classes</h3>
+                <p>
+                  <strong>🌸 Spring Bouquet Basics</strong><br />Saturday, June
+                  20 · 10:00 AM – 12:00 PM · $45
+                </p>
+                <p>
+                  <strong>💐 Romantic Arrangements</strong><br />Saturday, June
+                  27 · 10:00 AM – 12:00 PM · $50
+                </p>
+                <p>
+                  <strong>🌿 Greenery &amp; Filler Workshop</strong
+                  ><br />Saturday, July 11 · 10:00 AM – 12:00 PM · $40
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+      <!-- /page-shop -->
+    </main>
 
     <!-- ===== FOOTER ===== -->
     <footer>
@@ -1080,14 +1136,13 @@
           </div>
           <div>
             <h4>Quick Links</h4>
-            <a href="#flower-library">Flower Library</a>
-            <a href="#bouquets">Bouquets</a>
-            <a href="#shop">Shop</a>
-            <a href="#contact">Classes</a>
+            <a href="#page-home">Home</a>
+            <a href="#page-learn">Learn</a>
+            <a href="#page-shop">Shop &amp; Connect</a>
           </div>
           <div>
             <h4>Support</h4>
-            <a href="#contact">Contact Us</a>
+            <a href="#page-shop">Contact Us</a>
             <a href="#">Shipping Policy</a>
             <a href="#">Return Policy</a>
             <a href="#">FAQ</a>
@@ -1108,22 +1163,45 @@
     </footer>
 
     <script>
+      // Page navigation
+      function showPage(pageId) {
+        document.querySelectorAll("article").forEach((a) => a.classList.remove("active-page"));
+        document.getElementById(pageId).classList.add("active-page");
+        // Close mobile menu
+        document.getElementById("navLinks").classList.remove("open");
+      }
+
       // Mobile menu toggle
       function toggleMenu() {
         document.getElementById("navLinks").classList.toggle("open");
       }
 
-      // Close menu on link click (mobile)
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
-          document.getElementById("navLinks").classList.remove("open");
-        });
-      });
+      // Set up nav click handlers
+      document.addEventListener("DOMContentLoaded", () => {
+        // Show home by default
+        showPage("page-home");
 
-      // Form submission
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
+        // Nav link clicks
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            const href = link.getAttribute("href");
+            if (href.startsWith("#page-")) {
+              e.preventDefault();
+              showPage(href.substring(1));
+            }
+          });
+        });
+
+        // Footer and CTA link clicks
+        document.querySelectorAll("a[href^='#page-']").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            showPage(link.getAttribute("href").substring(1));
+          });
+        });
+
+        // Form submission
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
           e.preventDefault();
           const btn = this.querySelector('button[type="submit"]');
           const original = btn.textContent;
@@ -1136,16 +1214,17 @@
           }, 3000);
         });
 
-      // "Add to Cart" buttons
-      document.querySelectorAll(".shop-grid .btn-primary").forEach((btn) => {
-        btn.addEventListener("click", function () {
-          const original = this.textContent;
-          this.textContent = "✓ Added to Cart!";
-          this.style.background = "#a8d5b5";
-          setTimeout(() => {
-            this.textContent = original;
-            this.style.background = "";
-          }, 2000);
+        // "Add to Cart" buttons
+        document.querySelectorAll(".shop-grid .btn-primary").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const original = this.textContent;
+            this.textContent = "✓ Added to Cart!";
+            this.style.background = "#a8d5b5";
+            setTimeout(() => {
+              this.textContent = original;
+              this.style.background = "";
+            }, 2000);
+          });
         });
       });
     </script>
