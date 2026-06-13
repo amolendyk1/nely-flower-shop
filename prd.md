@@ -49,11 +49,10 @@ A clean, modern flower education and bouquet building website that helps users l
 | 1 | **Homepage** | Welcome hero, featured bouquets, call-to-action for classes and shop |
 | 2 | **Flower Library** | Educational reference — flower name, description, climate/growing conditions, image, care instructions, suggested pairings |
 | 3 | **Bouquet Arrangements** | Catalog of bouquets — name, description, image, flowers included, care instructions, pairing explanations |
-| 4 | **Holiday & Occasion** | Seasonal and holiday bouquet collections |
-| 5 | **Plant Guide** | Plant types, weather/climate needs, care instructions |
-| 6 | **Shop / Storefront** | E-commerce page to browse and purchase bouquets/plants with immediate payment |
-| 7 | **About** | Nely's story, the brand's mission, background |
-| 8 | **Contact / Class Sign-Up** | Registration form for in-person bouquet making classes, contact information, business hours |
+| 4 | **Plant Guide** | Plant types, weather/climate needs, care instructions |
+| 5 | **Shop / Storefront** | E-commerce page to browse and purchase bouquets/plants with immediate payment |
+| 6 | **About** | Nely's story, the brand's mission, background |
+| 7 | **Contact / Class Sign-Up** | Registration form for in-person bouquet making classes, contact information, business hours |
 
 ---
 

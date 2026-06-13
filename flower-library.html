@@ -1,50 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flower Library — The Bud & Bloom</title>
-  <meta name="description" content="Explore our flower library — learn about growing conditions, care instructions, and suggested pairings for every flower.">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌸%3C/text%3E%3C/svg%3E">
-</head>
-<body>
-
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo">The Bud <span>&amp; Bloom</span></a>
-      <div class="header-right">
-        <nav>
-          <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="flower-library.html" class="active">Flowers</a></li>
-            <li><a href="bouquets.html">Bouquets</a></li>
-            <li><a href="holidays.html">Occasions</a></li>
-            <li><a href="plant-guide.html">Plants</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="about.html">Our Story</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="header-icons">
-          <a href="shop.html" aria-label="Search">🔍</a>
-          <a href="contact.html" aria-label="Account">👤</a>
-          <a href="shop.html" aria-label="Cart">🛒</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flower Library — The Bud & Bloom</title>
+    <meta
+      name="description"
+      content="Explore our flower library — learn about growing conditions, care instructions, and suggested pairings for every flower."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌸%3C/text%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <a href="index.html" class="logo">The Bud <span>&amp; Bloom</span></a>
+        <div class="header-right">
+          <nav>
+            <ul class="nav-links" id="navLinks">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="flower-library.html" class="active">Flowers</a></li>
+              <li><a href="bouquets.html">Bouquets</a></li>
+              <li><a href="plant-guide.html">Plants</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="about.html">Our Story</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="header-icons">
+            <a href="shop.html" aria-label="Cart">🛒</a>
+          </div>
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle navigation"
+          >
+            <span></span><span></span><span></span>
+          </button>
         </div>
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
-        </button>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <section class="page-banner">
-    <h1>Flowers</h1>
-    <p>Your comprehensive guide to flowers — from growing conditions and care tips to perfect pairings for your next bouquet.</p>
-  </section>
+    <section class="page-banner">
+      <h1>Flowers</h1>
+      <p>
+        Your comprehensive guide to flowers — from growing conditions and care
+        tips to perfect pairings for your next bouquet.
+      </p>
+    </section>
 
-  <section class="content-section">
-    <div class="card-grid">
+    <section class="content-section">
+      <div class="card-grid">
+        <!-- Rose -->
+        <div class="card">
+          <img src="images/rose.jpg" alt="Rose" />
+          <div class="card-content">
+            <h3>Rose</h3>
+            <p class="subtitle">Rosa</p>
+            <p>
+              <strong>Climate:</strong> Temperate, well-drained soil, full sun
+            </p>
+            <p>
+              <strong>Care:</strong> Prune regularly, water deeply once a week,
+              protect from frost.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Lavender</span>
+              <span class="tag">Baby's Breath</span>
+              <span class="tag">Eucalyptus</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lavender -->
+        <div class="card">
+          <img src="images/lavender.jpg" alt="Lavender" class="tall" />
+          <div class="card-content">
+            <h3>Lavender</h3>
+            <p class="subtitle">Lavandula</p>
+            <p><strong>Climate:</strong> Mediterranean, dry soil, full sun</p>
+            <p>
+              <strong>Care:</strong> Well-draining soil, prune after flowering,
+              avoid over-watering.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Rose</span>
+              <span class="tag">Sunflower</span>
+              <span class="tag">Eucalyptus</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sunflower -->
+        <div class="card">
+          <img src="images/sunflower.jpg" alt="Sunflower" class="tall" />
+          <div class="card-content">
+            <h3>Sunflower</h3>
+            <p class="subtitle">Helianthus annuus</p>
             <p><strong>Climate:</strong> Warm, full sun, well-drained soil</p>
             <p>
               <strong>Care:</strong> Water regularly, stake tall varieties,
@@ -59,147 +117,424 @@
           </div>
         </div>
 
+        <!-- Tulip -->
         <div class="card">
-        <div class="card-img-placeholder bg-sage-dark">🌷</div>
-        <div class="card-content">
-          <h3>Tulip</h3>
-          <p class="subtitle">Tulipa</p>
-          <p><strong>Climate:</strong> Cool, well-drained soil, full to partial sun</p>
-          <p><strong>Care:</strong> Plant bulbs in fall, deadhead after bloom, let foliage die back naturally.</p>
-          <p><strong>Pairs well with:</strong></p>
-          <div>
-            <span class="tag">Daffodil</span>
-            <span class="tag">Hyacinth</span>
-            <span class="tag">Iris</span>
+          <img src="images/tulip.jpg" alt="Tulip" />
+          <div class="card-content">
+            <h3>Tulip</h3>
+            <p class="subtitle">Tulipa</p>
+            <p>
+              <strong>Climate:</strong> Cool, well-drained soil, full to partial
+              sun
+            </p>
+            <p>
+              <strong>Care:</strong> Plant bulbs in fall, deadhead after bloom,
+              let foliage die back naturally.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Daffodil</span>
+              <span class="tag">Hyacinth</span>
+              <span class="tag">Iris</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/daisy.jpg" alt="Daisy" />
+          <div class="card-content">
+            <h3>Daisy</h3>
+            <p class="subtitle">Bellis perennis</p>
+            <p>
+              <strong>Climate:</strong> Temperate, moist well-drained soil, full
+              sun to partial shade
+            </p>
+            <p>
+              <strong>Care:</strong> Deadhead regularly, divide clumps every 2-3
+              years, water during dry spells.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Rose</span>
+              <span class="tag">Lavender</span>
+              <span class="tag">Sunflower</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/peony.jpg" alt="Peony" />
+          <div class="card-content">
+            <h3>Peony</h3>
+            <p class="subtitle">Paeonia</p>
+            <p>
+              <strong>Climate:</strong> Cool temperate, fertile soil, full sun
+            </p>
+            <p>
+              <strong>Care:</strong> Plant in fall, support heavy blooms, cut
+              back in autumn.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Rose</span>
+              <span class="tag">Iris</span>
+              <span class="tag">Baby's Breath</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/hydrangea.jpg" alt="Hydrangea" />
+          <div class="card-content">
+            <h3>Hydrangea</h3>
+            <p class="subtitle">Hydrangea macrophylla</p>
+            <p>
+              <strong>Climate:</strong> Temperate, moist soil, morning
+              sun/afternoon shade
+            </p>
+            <p>
+              <strong>Care:</strong> Keep soil consistently moist, prune after
+              blooming, adjust soil pH for color.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Peony</span>
+              <span class="tag">Rose</span>
+              <span class="tag">Lavender</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lily -->
+        <div class="card">
+          <img src="images/lily.jpg" alt="Lily" />
+          <div class="card-content">
+            <h3>Lily</h3>
+            <p class="subtitle">Lilium</p>
+            <p>
+              <strong>Climate:</strong> Temperate, well-drained soil, full sun
+              to partial shade
+            </p>
+            <p>
+              <strong>Care:</strong> Plant bulbs in deep soil, stake tall
+              varieties, deadhead spent blooms, mulch to keep roots cool.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Rose</span>
+              <span class="tag">Lavender</span>
+              <span class="tag">Baby's Breath</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orchid -->
+        <div class="card">
+          <img src="images/orchid.jpg" alt="Orchid" />
+          <div class="card-content">
+            <h3>Orchid</h3>
+            <p class="subtitle">Orchidaceae</p>
+            <p>
+              <strong>Climate:</strong> Tropical / humid, warm temperatures,
+              indirect light
+            </p>
+            <p>
+              <strong>Care:</strong> Water sparingly — let roots dry between
+              waterings. Use bark-based potting mix. Provide bright, indirect
+              light.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Lily</span>
+              <span class="tag">Hydrangea</span>
+              <span class="tag">Rose</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carnation -->
+        <div class="card">
+          <img
+            src="images/carnation.jpg"
+            alt="Carnation"
+            style="mix-blend-mode: multiply; background: transparent"
+          />
+          <div class="card-content">
+            <h3>Carnation</h3>
+            <p class="subtitle">Dianthus caryophyllus</p>
+            <p>
+              <strong>Climate:</strong> Temperate, well-drained soil, full sun
+              to partial shade
+            </p>
+            <p>
+              <strong>Care:</strong> Deadhead regularly, pinch back stems for
+              bushier growth, water at base to avoid leaf spots.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Rose</span>
+              <span class="tag">Baby's Breath</span>
+              <span class="tag">Lavender</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cherry Blossom -->
+        <div class="card">
+          <img src="images/cherry-blossom.jpg" alt="Cherry Blossom" />
+          <div class="card-content">
+            <h3>Cherry Blossom</h3>
+            <p class="subtitle">Prunus serrulata</p>
+            <p>
+              <strong>Climate:</strong> Temperate, cool winters, mild springs,
+              well-drained soil
+            </p>
+            <p>
+              <strong>Care:</strong> Prune after flowering, water during dry
+              spells, protect from strong winds. Blooms last 1-2 weeks.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Tulip</span>
+              <span class="tag">Daffodil</span>
+              <span class="tag">Iris</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hibiscus -->
+        <div class="card">
+          <img src="images/hibiscus.jpg" alt="Hibiscus" />
+          <div class="card-content">
+            <h3>Hibiscus</h3>
+            <p class="subtitle">Hibiscus rosa-sinensis</p>
+            <p>
+              <strong>Climate:</strong> Tropical / subtropical, warm
+              temperatures, high humidity, full sun
+            </p>
+            <p>
+              <strong>Care:</strong> Water frequently in warm months, prune in
+              early spring, bring indoors in cold climates.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Orchid</span>
+              <span class="tag">Lily</span>
+              <span class="tag">Bird of Paradise</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calla Lily -->
+        <div class="card">
+          <img src="images/calla-lily.jpg" alt="Calla Lily" />
+          <div class="card-content">
+            <h3>Calla Lily</h3>
+            <p class="subtitle">Zantedeschia aethiopica</p>
+            <p>
+              <strong>Climate:</strong> Warm temperate, moist soil, partial
+              shade
+            </p>
+            <p>
+              <strong>Care:</strong> Keep soil consistently moist, fertilize
+              monthly during growing season, cut back after flowering.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Rose</span>
+              <span class="tag">Lily</span>
+              <span class="tag">Hydrangea</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daffodil -->
+        <div class="card">
+          <img src="images/daffodil.jpg" alt="Daffodil" />
+          <div class="card-content">
+            <h3>Daffodil</h3>
+            <p class="subtitle">Narcissus</p>
+            <p>
+              <strong>Climate:</strong> Temperate, well-drained soil, full sun
+              to partial shade
+            </p>
+            <p>
+              <strong>Care:</strong> Plant bulbs in fall, deadhead after bloom,
+              let foliage die back naturally. Avoid cutting leaves until yellow.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Tulip</span>
+              <span class="tag">Hyacinth</span>
+              <span class="tag">Iris</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marigold -->
+        <div class="card">
+          <img src="images/marigold.jpg" alt="Marigold" />
+          <div class="card-content">
+            <h3>Marigold</h3>
+            <p class="subtitle">Tagetes</p>
+            <p>
+              <strong>Climate:</strong> Warm, full sun, well-drained soil.
+              Tolerates heat well.
+            </p>
+            <p>
+              <strong>Care:</strong> Deadhead spent blooms regularly, water at
+              base, pinch back young plants for bushier growth.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Sunflower</span>
+              <span class="tag">Daisy</span>
+              <span class="tag">Lavender</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Anthurium -->
+        <div class="card">
+          <img src="images/anthurium.jpg" alt="Anthurium" />
+          <div class="card-content">
+            <h3>Anthurium</h3>
+            <p class="subtitle">Anthurium andraeanum</p>
+            <p>
+              <strong>Climate:</strong> Tropical, high humidity, bright indirect
+              light
+            </p>
+            <p>
+              <strong>Care:</strong> Keep soil evenly moist but not soggy, mist
+              leaves regularly, fertilize monthly in growing season.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Orchid</span>
+              <span class="tag">Lily</span>
+              <span class="tag">Calla Lily</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Iris -->
+        <div class="card">
+          <img src="images/iris.jpg" alt="Iris" />
+          <div class="card-content">
+            <h3>Iris</h3>
+            <p class="subtitle">Iris germanica</p>
+            <p>
+              <strong>Climate:</strong> Temperate, well-drained soil, full sun
+            </p>
+            <p>
+              <strong>Care:</strong> Plant rhizomes in late summer, divide every
+              3-4 years, avoid over-watering to prevent rot.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Peony</span>
+              <span class="tag">Lily</span>
+              <span class="tag">Daffodil</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lisianthus -->
+        <div class="card">
+          <img src="images/lisianthus.jpg" alt="Lisianthus" />
+          <div class="card-content">
+            <h3>Lisianthus</h3>
+            <p class="subtitle">Eustoma grandiflorum</p>
+            <p>
+              <strong>Climate:</strong> Warm temperate, well-drained soil, full
+              sun
+            </p>
+            <p>
+              <strong>Care:</strong> Water consistently, stake tall stems,
+              deadhead spent blooms to encourage re-blooming.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Rose</span>
+              <span class="tag">Eucalyptus</span>
+              <span class="tag">Baby&#39;s Breath</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lotus -->
+        <div class="card">
+          <img src="images/lotus.jpg" alt="Lotus" />
+          <div class="card-content">
+            <h3>Lotus</h3>
+            <p class="subtitle">Nelumbo nucifera</p>
+            <p>
+              <strong>Climate:</strong> Warm aquatic, full sun, still freshwater
+            </p>
+            <p>
+              <strong>Care:</strong> Grow in shallow ponds or large containers
+              with aquatic soil. Fertilize monthly during bloom season. Protect
+              from freezing temperatures.
+            </p>
+            <p><strong>Pairs well with:</strong></p>
+            <div>
+              <span class="tag">Water Lily</span>
+              <span class="tag">Calla Lily</span>
+              <span class="tag">Iris</span>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="card">
-        <div class="card-img-placeholder bg-cream">🌼</div>
-        <div class="card-content">
-          <h3>Daisy</h3>
-          <p class="subtitle">Bellis perennis</p>
-          <p><strong>Climate:</strong> Temperate, moist well-drained soil, full sun to partial shade</p>
-          <p><strong>Care:</strong> Deadhead regularly, divide clumps every 2-3 years, water during dry spells.</p>
-          <p><strong>Pairs well with:</strong></p>
-          <div>
-            <span class="tag">Rose</span>
-            <span class="tag">Lavender</span>
-            <span class="tag">Sunflower</span>
-          </div>
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <h3>The Bud &amp; Bloom</h3>
+          <p>
+            Flower education, beautifully curated bouquets, and hands-on floral
+            arrangement classes. Let your creativity bloom.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="flower-library.html">Flowers</a></li>
+            <li><a href="bouquets.html">Bouquets</a></li>
+            <li><a href="plant-guide.html">Plants</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="bouquets.html">Bouquets</a></li>
+            <li><a href="plant-guide.html">Plants</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Class Sign-Up</a></li>
+          </ul>
         </div>
       </div>
-
-      <div class="card">
-        <div class="card-img-placeholder bg-blush">🌸</div>
-        <div class="card-content">
-          <h3>Peony</h3>
-          <p class="subtitle">Paeonia</p>
-          <p><strong>Climate:</strong> Cool temperate, fertile soil, full sun</p>
-          <p><strong>Care:</strong> Plant in fall, support heavy blooms, cut back in autumn.</p>
-          <p><strong>Pairs well with:</strong></p>
-          <div>
-            <span class="tag">Rose</span>
-            <span class="tag">Iris</span>
-            <span class="tag">Baby's Breath</span>
-          </div>
-        </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 The Bud &amp; Bloom. All rights reserved. Designed with
+          love for Nely Molendyk.
+        </p>
       </div>
+    </footer>
 
-      <div class="card">
-        <div class="card-img-placeholder bg-sage">🤍</div>
-        <div class="card-content">
-          <h3>Baby's Breath</h3>
-          <p class="subtitle">Gypsophila</p>
-          <p><strong>Climate:</strong> Temperate, alkaline soil, full sun</p>
-          <p><strong>Care:</strong> Drought-tolerant, prune after flowering, avoid rich soil.</p>
-          <p><strong>Pairs well with:</strong></p>
-          <div>
-            <span class="tag">Rose</span>
-            <span class="tag">Peony</span>
-            <span class="tag">Sunflower</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img-placeholder bg-blush-dark">💙</div>
-        <div class="card-content">
-          <h3>Hydrangea</h3>
-          <p class="subtitle">Hydrangea macrophylla</p>
-          <p><strong>Climate:</strong> Temperate, moist soil, morning sun/afternoon shade</p>
-          <p><strong>Care:</strong> Keep soil consistently moist, prune after blooming, adjust soil pH for color.</p>
-          <p><strong>Pairs well with:</strong></p>
-          <div>
-            <span class="tag">Peony</span>
-            <span class="tag">Rose</span>
-            <span class="tag">Lavender</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img-placeholder bg-sage-dark">🌈</div>
-        <div class="card-content">
-          <h3>Iris</h3>
-          <p class="subtitle">Iris germanica</p>
-          <p><strong>Climate:</strong> Temperate, well-drained soil, full sun</p>
-          <p><strong>Care:</strong> Plant rhizomes shallow, divide every 3-4 years, remove spent blooms.</p>
-          <p><strong>Pairs well with:</strong></p>
-          <div>
-            <span class="tag">Tulip</span>
-            <span class="tag">Peony</span>
-            <span class="tag">Daisy</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <h3>The Bud &amp; Bloom</h3>
-        <p>Flower education, beautifully curated bouquets, and hands-on floral arrangement classes. Let your creativity bloom.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="flower-library.html">Flowers</a></li>
-          <li><a href="bouquets.html">Bouquets</a></li>
-          <li><a href="holidays.html">Occasions</a></li>
-          <li><a href="plant-guide.html">Plants</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Shop</h4>
-        <ul>
-          <li><a href="shop.html">All Products</a></li>
-          <li><a href="bouquets.html">Bouquets</a></li>
-          <li><a href="plant-guide.html">Plants</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">Our Story</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="contact.html">Class Sign-Up</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 The Bud &amp; Bloom. All rights reserved. Designed with love for Nely Molendyk.</p>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('hamburger').addEventListener('click', function () {
-      document.getElementById('navLinks').classList.toggle('open');
-    });
-  </script>
-
-</body>
+    <script>
+      document
+        .getElementById("hamburger")
+        .addEventListener("click", function () {
+          document.getElementById("navLinks").classList.toggle("open");
+        });
+    </script>
+  </body>
 </html>
