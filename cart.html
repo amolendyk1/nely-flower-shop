@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart — The Bud &amp; Bloom</title>
+    <meta
+      name="description"
+      content="Review your cart and checkout at The Bud &amp; Bloom."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌸%3C/text%3E%3C/svg%3E"
+    />
+    <style>
+      .cart-layout {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+      .cart-items {
+        min-height: 200px;
+      }
+      .cart-item {
+        display: grid;
+        grid-template-columns: 100px 1fr auto;
+        gap: 1.5rem;
+        align-items: center;
+        padding: 1.25rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .cart-item:last-child {
+        border-bottom: none;
+      }
+      .cart-item img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        background: var(--white);
+        border: 1px solid var(--border);
+        padding: 0.5rem;
+      }
+      .cart-item-info h4 {
+        margin-bottom: 0.25rem;
+      }
+      .cart-item-info p {
+        font-size: 0.85rem;
+        margin-bottom: 0;
+      }
+      .cart-item-qty {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .cart-item-qty button {
+        width: 30px;
+        height: 30px;
+        border: 1px solid var(--border);
+        background: var(--white);
+        cursor: pointer;
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+      .cart-item-qty button:hover {
+        border-color: var(--charcoal);
+      }
+      .cart-item-qty span {
+        min-width: 24px;
+        text-align: center;
+      }
+      .cart-item-price {
+        text-align: right;
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--charcoal);
+      }
+      .remove-item {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        font-size: 0.8rem;
+        text-decoration: underline;
+        transition: var(--transition);
+      }
+      .remove-item:hover {
+        color: #c0392b;
+      }
+
+      .cart-summary {
+        background: var(--white);
+        border: 1px solid var(--border);
+        padding: 2rem;
+        position: sticky;
+        top: 90px;
+      }
+      .cart-summary h3 {
+        margin-bottom: 1.5rem;
+      }
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+      }
+      .summary-total {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--charcoal);
+        border-top: 1px solid var(--border);
+        padding-top: 1rem;
+        margin-top: 0.5rem;
+      }
+      .cart-empty {
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+      .cart-empty .icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+      .cart-empty h3 {
+        margin-bottom: 0.5rem;
+      }
+      .cart-empty p {
+        margin-bottom: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .cart-layout {
+          grid-template-columns: 1fr;
+        }
+        .cart-item {
+          grid-template-columns: 80px 1fr;
+        }
+        .cart-item-price {
+          grid-column: 1 / -1;
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <a href="index.html" class="logo">The Bud <span>&amp; Bloom</span></a>
+        <div class="header-right">
+          <nav>
+            <ul class="nav-links" id="navLinks">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="flower-library.html">Flowers</a></li>
+              <li><a href="bouquets.html">Bouquets</a></li>
+              <li><a href="plant-guide.html">Plants</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="about.html">Our Story</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="header-icons">
+            <a href="cart.html" aria-label="Cart">🛒</a>
+          </div>
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle navigation"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-banner">
+      <h1>Your Cart</h1>
+      <p>Review your items and proceed to checkout.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="cart-layout">
+          <div class="cart-items" id="cartItems">
+            <!-- Cart items loaded by JavaScript -->
+          </div>
+          <div class="cart-summary" id="cartSummary">
+            <h3>Order Summary</h3>
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping</span>
+              <span id="shipping">$0.00</span>
+            </div>
+            <div class="summary-total">
+              <span>Total</span>
+              <span id="total">$0.00</span>
+            </div>
+            <button
+              class="btn btn-primary"
+              style="width: 100%; margin-top: 1.5rem"
+              onclick="checkout()"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <h3>The Bud &amp; Bloom</h3>
+          <p>
+            Flower education, beautifully curated bouquets, and hands-on floral
+            arrangement classes. Let your creativity bloom.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="flower-library.html">Flowers</a></li>
+            <li><a href="bouquets.html">Bouquets</a></li>
+            <li><a href="plant-guide.html">Plants</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="bouquets.html">Bouquets</a></li>
+            <li><a href="plant-guide.html">Plants</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Class Sign-Up</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 The Bud &amp; Bloom. All rights reserved. Designed with
+          love for Nely Molendyk.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Product catalog for reference
+      const products = {
+        "Blush Cloud Harmony": {
+          img: "images/blush-cloud-harmony.jpg",
+          price: 60.0,
+        },
+        "Pastel Whisper Garden": {
+          img: "images/pastel-whisper-garden.jpg",
+          price: 52.0,
+        },
+        "Rosy Meadow Bloom": {
+          img: "images/rosy-meadow-bloom.jpg",
+          price: 56.0,
+        },
+        "Chrysanthemum Lace Bouquet": {
+          img: "images/chrysanthemum-lace-bouquet.jpg",
+          price: 45.0,
+        },
+        "Magenta Petal Symphony": {
+          img: "images/magenta%20petal%20symthony.jpg",
+          price: 62.0,
+        },
+        "Lavender Rose Drift": {
+          img: "images/lavender-rose-drift.jpg",
+          price: 54.0,
+        },
+        "Peony Rose Lush": { img: "images/peony-rose-lush.jpg", price: 64.0 },
+        "Rose & Alstroemeria Charm": {
+          img: "images/rose-and-alstroemeria-charm.jpg",
+          price: 48.0,
+        },
+        "Snake Plant": { img: "images/snake-plant.jpg", price: 25.0 },
+        "Striped Calathea": { img: "images/striped-calathea.jpg", price: 32.0 },
+        Anthurium: { img: "images/anthurium.jpg", price: 35.0 },
+      };
+
+      function getCart() {
+        try {
+          return JSON.parse(localStorage.getItem("budCart")) || [];
+        } catch {
+          return [];
+        }
+      }
+
+      function saveCart(cart) {
+        localStorage.setItem("budCart", JSON.stringify(cart));
+      }
+
+      function addToCart(name, price) {
+        let cart = getCart();
+        const existing = cart.find((item) => item.name === name);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({ name, price, qty: 1 });
+        }
+        saveCart(cart);
+        updateCartCount();
+        alert(name + " added to cart!");
+      }
+
+      function removeFromCart(name) {
+        let cart = getCart().filter((item) => item.name !== name);
+        saveCart(cart);
+        renderCart();
+        updateCartCount();
+      }
+
+      function updateQty(name, delta) {
+        let cart = getCart();
+        const item = cart.find((i) => i.name === name);
+        if (!item) return;
+        item.qty += delta;
+        if (item.qty <= 0) {
+          cart = cart.filter((i) => i.name !== name);
+        }
+        saveCart(cart);
+        renderCart();
+        updateCartCount();
+      }
+
+      function renderCart() {
+        const container = document.getElementById("cartItems");
+        const cart = getCart();
+        let subtotal = 0;
+
+        if (cart.length === 0) {
+          container.innerHTML = `
+          <div class="cart-empty">
+            <div class="icon">🛒</div>
+            <h3>Your cart is empty</h3>
+            <p>Looks like you haven't added anything yet. Browse our beautiful bouquets and plants!</p>
+            <a href="shop.html" class="btn btn-primary">Start Shopping</a>
+          </div>
+        `;
+          document.getElementById("subtotal").textContent = "$0.00";
+          document.getElementById("shipping").textContent = "$0.00";
+          document.getElementById("total").textContent = "$0.00";
+          return;
+        }
+
+        let html = "";
+        cart.forEach((item) => {
+          const product = products[item.name] || {
+            img: "images/tulip.jpg",
+            price: item.price,
+          };
+          const itemTotal = product.price * item.qty;
+          subtotal += itemTotal;
+          html += `
+          <div class="cart-item">
+            <img src="${product.img}" alt="${item.name}">
+            <div class="cart-item-info">
+              <h4>${item.name}</h4>
+              <p>$${product.price.toFixed(2)} each</p>
+              <button class="remove-item" onclick="removeFromCart('${item.name.replace(/'/g, "\\'")}')">Remove</button>
+            </div>
+            <div class="cart-item-qty">
+              <button onclick="updateQty('${item.name.replace(/'/g, "\\'")}', -1)">−</button>
+              <span>${item.qty}</span>
+              <button onclick="updateQty('${item.name.replace(/'/g, "\\'")}', 1)">+</button>
+            </div>
+            <div class="cart-item-price">$${itemTotal.toFixed(2)}</div>
+          </div>
+        `;
+        });
+
+        container.innerHTML = html;
+
+        const shipping = subtotal >= 50 ? 0 : 8;
+        const total = subtotal + shipping;
+        document.getElementById("subtotal").textContent =
+          "$" + subtotal.toFixed(2);
+        document.getElementById("shipping").textContent =
+          shipping === 0 ? "Free" : "$" + shipping.toFixed(2);
+        document.getElementById("total").textContent = "$" + total.toFixed(2);
+      }
+
+      function updateCartCount() {
+        const cart = getCart();
+        const count = cart.reduce((sum, item) => sum + item.qty, 0);
+        // Update any cart count badges if needed
+      }
+
+      function checkout() {
+        const cart = getCart();
+        if (cart.length === 0) {
+          alert("Your cart is empty! Add some items before checking out.");
+          return;
+        }
+        alert(
+          "Thank you for your order! You will be redirected to our contact page to finalize your purchase.",
+        );
+        localStorage.removeItem("budCart");
+        window.location.href = "contact.html";
+      }
+
+      // Initial render
+      renderCart();
+      updateCartCount();
+    </script>
+  </body>
+</html>

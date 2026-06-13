@@ -27,7 +27,7 @@
           </ul>
         </nav>
         <div class="header-icons">
-          <a href="shop.html" aria-label="Cart">🛒</a>
+          <a href="shop.html" aria-label="Cart">Cart</a>
         </div>
         <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
           <span></span>
@@ -52,7 +52,6 @@
       <div class="hero-buttons">
         <a href="flower-library.html" class="btn btn-primary">Explore Flowers</a>
         <a href="shop.html" class="btn btn-secondary">Shop Bouquets</a>
-        <a href="contact.html" class="btn btn-ghost">Class Sign-Up →</a>
       </div>
     </div>
   </section>
@@ -64,32 +63,32 @@
       <p class="section-subtitle">Handcrafted arrangements designed to bring joy to any space.</p>
       <div class="product-grid">
         <div class="product-card">
-          <div class="product-img bg-blush">🌹</div>
-          <h3>Romantic Bloom</h3>
-          <p class="product-desc">Red roses, lavender &amp; baby's breath</p>
-          <p class="price">$55.00</p>
-          <button class="btn-add" onclick="alert('Added to cart — Romantic Bloom')">Add to Cart</button>
+          <img src="images/blush-cloud-harmony.jpg" alt="Blush Cloud Harmony" />
+          <h3>Blush Cloud Harmony</h3>
+          <p class="product-desc">Light pink hydrangeas, deep pink roses &amp; peonies</p>
+          <p class="price">$60.00</p>
+          <button class="btn-add" onclick="alert('Added to cart — Blush Cloud Harmony')">Add to Cart</button>
         </div>
         <div class="product-card">
-          <div class="product-img bg-sage">🌻</div>
-          <h3>Sunshine Garden</h3>
-          <p class="product-desc">Sunflowers, tulips &amp; daisies</p>
-          <p class="price">$48.00</p>
-          <button class="btn-add" onclick="alert('Added to cart — Sunshine Garden')">Add to Cart</button>
+          <img src="images/pastel-whisper-garden.jpg" alt="Pastel Whisper Garden" />
+          <h3>Pastel Whisper Garden</h3>
+          <p class="product-desc">Pale pink roses, blush hyacinths &amp; white tulips</p>
+          <p class="price">$52.00</p>
+          <button class="btn-add" onclick="alert('Added to cart — Pastel Whisper Garden')">Add to Cart</button>
         </div>
         <div class="product-card">
-          <div class="product-img bg-blush-dark">🌸</div>
-          <h3>Elegant Whisper</h3>
-          <p class="product-desc">Peonies, hydrangeas &amp; irises</p>
-          <p class="price">$65.00</p>
-          <button class="btn-add" onclick="alert('Added to cart — Elegant Whisper')">Add to Cart</button>
+          <img src="images/rosy-meadow-bloom.jpg" alt="Rosy Meadow Bloom" />
+          <h3>Rosy Meadow Bloom</h3>
+          <p class="product-desc">Pink roses, cream roses &amp; bright pink blossoms</p>
+          <p class="price">$56.00</p>
+          <button class="btn-add" onclick="alert('Added to cart — Rosy Meadow Bloom')">Add to Cart</button>
         </div>
         <div class="product-card">
-          <div class="product-img bg-sage-dark">🌼</div>
-          <h3>Meadow Fresh</h3>
-          <p class="product-desc">Daisies, lavender &amp; eucalyptus</p>
-          <p class="price">$42.00</p>
-          <button class="btn-add" onclick="alert('Added to cart — Meadow Fresh')">Add to Cart</button>
+          <img src="images/chrysanthemum-lace-bouquet.jpg" alt="Chrysanthemum Lace Bouquet" />
+          <h3>Chrysanthemum Lace</h3>
+          <p class="product-desc">Chrysanthemums, spray roses &amp; greenery</p>
+          <p class="price">$45.00</p>
+          <button class="btn-add" onclick="alert('Added to cart — Chrysanthemum Lace Bouquet')">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -114,18 +113,6 @@
           <a href="about.html" class="btn btn-ghost" style="margin-top: 0.5rem;">Read More →</a>
         </div>
       </img>
-    </div>
-  </section>
-
-  <!-- ===== INSTAGRAM ===== -->
-  <section>
-    <div class="instagram-grid">
-      <div class="instagram-item">🌹</div>
-      <div class="instagram-item">🌻</div>
-      <div class="instagram-item">🌸</div>
-      <div class="instagram-item">🌷</div>
-      <div class="instagram-item">🌼</div>
-      <div class="instagram-item">💐</div>
     </div>
   </section>
 
@@ -167,10 +154,48 @@
   </footer>
 
   <script>
+    // Product catalog
+    const products = {
+      "Blush Cloud Harmony": { img: "images/blush-cloud-harmony.jpg", price: 60.0 },
+      "Pastel Whisper Garden": { img: "images/pastel-whisper-garden.jpg", price: 52.0 },
+      "Rosy Meadow Bloom": { img: "images/rosy-meadow-bloom.jpg", price: 56.0 },
+      "Chrysanthemum Lace Bouquet": { img: "images/chrysanthemum-lace-bouquet.jpg", price: 45.0 },
+      "Magenta Petal Symphony": { img: "images/magenta%20petal%20symthony.jpg", price: 62.0 },
+      "Lavender Rose Drift": { img: "images/lavender-rose-drift.jpg", price: 54.0 },
+      "Peony Rose Lush": { img: "images/peony-rose-lush.jpg", price: 64.0 },
+      "Rose & Alstroemeria Charm": { img: "images/rose-and-alstroemeria-charm.jpg", price: 48.0 },
+      "Snake Plant": { img: "images/snake-plant.jpg", price: 25.0 },
+      "Striped Calathea": { img: "images/striped-calathea.jpg", price: 32.0 },
+      Anthurium: { img: "images/anthurium.jpg", price: 35.0 },
+    };
+
+    function getCart() {
+      try {
+        return JSON.parse(localStorage.getItem("budCart")) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem("budCart", JSON.stringify(cart));
+    }
+
+    function addToCart(name, price) {
+      let cart = getCart();
+      const existing = cart.find((item) => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, qty: 1 });
+      }
+      saveCart(cart);
+      alert(name + " added to cart!");
+    }
+
     document.getElementById('hamburger').addEventListener('click', function () {
       document.getElementById('navLinks').classList.toggle('open');
     });
   </script>
 
-</body>
-</html>
+<script src="js/cart.js"></script>
