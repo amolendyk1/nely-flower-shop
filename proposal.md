@@ -1,26 +1,54 @@
 ## Client Brief
 
-**Client:** My client is Nely Molendyk, she is my mom and an aspiring florist. 
-**Purpose:** The purpose is a clean, modern flower education and bouquet building website that helps users understand flowers, create bouquets with compatible flowers and sign up for floral arrangement classes.
-**Audience:** The target audience includes, florists, gardeners, mothers and grandmothers, gift shoppers, and anyone interested in flower or bouquet design. From this website, the users can find different types of flowers, which flowers pari well, seasonal and holiday recommentations, bouquet ideas, care instructions, and class sign up. 
-**Key action:** Visitors should sign up for either bouquet making classes or contact the florest for custom bouquets or plant purchases and recommendtions. 
+**Client:** Nely Molendyk — aspiring florist and business owner.
+**Purpose:** A clean, modern flower education and bouquet building website that helps users learn about flowers, understand flower pairings, build bouquets with compatible flowers, purchase arrangements, and sign up for floral arrangement classes.
+**Audience:** Florists, gardeners, mothers and grandmothers, gift shoppers, and anyone interested in flower or bouquet design. Users can find different types of flowers, flower pairings, seasonal and holiday recommendations, bouquet ideas, care instructions, and class sign-ups.
+**Key actions:** Visitors should either sign up for bouquet making classes, purchase bouquets/plants, or contact the florist for custom recommendations.
 
-**Pages/sections needed:**
-- Flower Library: name of flower, description, climate and growing conditions, image, care instructions, and suggested pairings.
-- Bouquet arrangements: bouquet names, description, images, flowers included, and care instructions.
-- Holiday and occasion: seasonal bouquets
-- Plant guide: types of plants, weather and climate, care instructions
-- Contact/Sign up for class: form to register for bouguet making classes, contact information, hours.
+**Pages/sections delivered:**
+1. **Homepage** - Welcome hero with featured bouquets and CTAs
+2. **Flower Library** - Flower reference with descriptions, climate info, care instructions, and pairings (static content)
+3. **Bouquet Arrangements** - Catalog of curated bouquets with descriptions and pairing explanations
+4. **Plant Guide** - Plant types, weather/climate needs, care instructions
+5. **Shop/Storefront** - E-commerce product listings (UI ready for payment integration)
+6. **Shopping Cart** - Cart management interface
+7. **About** - Nely's story and brand mission
+8. **Contact/Class Sign-Up** - Registration form for classes and general inquiries
 
-**Content status:** Some content I have include style preferences, pages and sections, purpose of the website, and the purpose of this project. Some information I will still need to find include, flower names, flower descriptions, bouquet names, bouquet descriptions, care instruction, class descriptions. I will also have some individual flower photos, bouquet photos, and plant photos. 
+**Content status:** ✅ All flower names, descriptions, bouquet names, care instructions, and class descriptions have been created and implemented. Placeholder images are in use and can be replaced with Nely's own photos over time. 
 
-**Style preferences:** Her style preferences include, simple, clean, easy to read fonts, light, bright colors, large, clear images, and symmetrical layout. 
+## Technical Implementation
 
-**Inspiration sites:**
-- [https://farmgirlflowers.com/shop?sort_by=recommended&min_price=1&max_price=500] - She liked how big the images were and how easy they are to see. She also like how there were different tabs for flowers or occasions. Although, she does not like the black, she thinks it is a little dark.
-- [https://urbanstems.com/collections/flowers?srsltid=AfmBOooCPTvMasXw3YABOSTL-9SJJllkFBO4xfRCmsoYr7zy3d4WJN-X] - She liked how all of the pictures have the flowers in the same position and how it was very symmetrical. She does not like how the name of the bouquets are not described well. In addition, she thinks that the website is simple and easy to look at.
-- [https://www.proflowers.com/] - She does not like the font and she thinks that the page looks a little messy. She also does not like how there a limited flower options. she like the different tabs and how each of the sub pages have simple names. 
+**Frontend Technologies:**
+- ✅ **Semantic HTML5:** Proper use of `<header>`, `<nav>`, `<section>`, `<footer>`, `<main>` elements for accessibility and SEO
+- ✅ **Responsive CSS Layout:** CSS Grid and Flexbox for flexible, mobile-friendly designs
+- ✅ **Mobile-First Design:** Breakpoints optimized for mobile (480px), tablet (768px), and desktop (968px+)
+- ✅ **Favicon:** Custom SVG favicon with flower emoji integration
+- ✅ **External Stylesheet:** Centralized CSS (`css/style.css`) with variables, typography, and reusable components
+- ✅ **Accessibility:** ARIA labels, semantic HTML structure, keyboard navigation support
+
+**Design System:**
+- **Color Palette:** Pastel palette with CSS variables (soft pink, medium pink, blush, cream, charcoal)
+- **Typography:** Serif headings (Cormorant Garamond) + sans-serif body (DM Sans) for elegant, readable design
+- **Components:** Reusable button styles, card layouts, grid systems, form elements
+
+**Hosting & Deployment:**
+- **Platform:** GitHub Pages (ready for deployment)
+- **Repository:** `nely-flower-shop`
+- **Future:** Custom domain can be added anytime
+
+**Inspiration Integration:**
+- **UrbanStems inspiration:** Symmetrical grid layout, large product images, clean navigation
+- **Farmgirl Flowers inspiration:** Large clear images, organized browsing experience
+- **ProFlowers inspiration:** Simple tab navigation, clear page hierarchy
+- **Design improvements over references:** Lighter pastel color palette, detailed pairing explanations, dedicated class sign-up page
 
 ## Layout Plan
 
-- One reference site was the UrbanStems site that I showed her. She liked the symmetry, clean grid, and large images. In addition, there were clear navigation tabs such as occasions, types, and collections. This allows easy access and straightforward category names. She said she would want to change are the descriptions of the bouquets and she would like lighter color palette.In addition, adding a section for each bouquet explaining why those flowers pair well with each other. Lastly, she would like to include a sign up page for customers to sign up for bouquet making classes. In the reference site, we did not see this and she thought it was very important to have. Some colors she would like to include are pastel color such as pink, purple, yellow, light blue, and light green. These colors feel very spring which gives off natural floral color vibes. 
+- Implemented UrbanStems' symmetry and clean grid design with CSS Grid and Flexbox
+- Large, prominent product imagery (300x360px cards) for visual impact
+- Lighter pastel color scheme (pink, purple, yellow, light blue, light green) for spring/floral vibes
+- Enhanced bouquet descriptions with pairing explanations and care instructions
+- Dedicated class sign-up and contact page (noted as missing from reference sites)
+- Consistent, sticky navigation header with mobile hamburger menu
+- Responsive design that adapts from mobile (320px) to desktop (1280px+)

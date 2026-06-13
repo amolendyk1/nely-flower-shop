@@ -44,41 +44,45 @@ A clean, modern flower education and bouquet building website that helps users l
 
 ## 3. Pages / Sections
 
-| # | Page | Description |
-|---|------|-------------|
-| 1 | **Homepage** | Welcome hero, featured bouquets, call-to-action for classes and shop |
-| 2 | **Flower Library** | Educational reference — flower name, description, climate/growing conditions, image, care instructions, suggested pairings |
-| 3 | **Bouquet Arrangements** | Catalog of bouquets — name, description, image, flowers included, care instructions, pairing explanations |
-| 4 | **Plant Guide** | Plant types, weather/climate needs, care instructions |
-| 5 | **Shop / Storefront** | E-commerce page to browse and purchase bouquets/plants with immediate payment |
-| 6 | **About** | Nely's story, the brand's mission, background |
-| 7 | **Contact / Class Sign-Up** | Registration form for in-person bouquet making classes, contact information, business hours |
+| # | Page | Description | Status |
+|---|------|----------|--------|
+| 1 | **Homepage** | Welcome hero, featured bouquets, call-to-action for classes and shop | ✅ Implemented |
+| 2 | **Flower Library** | Educational reference — flower name, description, climate/growing conditions, image, care instructions, suggested pairings | ✅ Implemented |
+| 3 | **Bouquet Arrangements** | Catalog of bouquets — name, description, image, flowers included, care instructions, pairing explanations | ✅ Implemented |
+| 4 | **Plant Guide** | Plant types, weather/climate needs, care instructions | ✅ Implemented |
+| 5 | **Shop / Storefront** | E-commerce page to browse and purchase bouquets/plants with immediate payment | ✅ Implemented (UI only) |
+| 6 | **Cart** | Shopping cart interface for managing selected items | ✅ Implemented |
+| 7 | **About** | Nely's story, the brand's mission, background | ✅ Implemented |
+| 8 | **Contact / Class Sign-Up** | Registration form for in-person bouquet making classes, contact information, business hours | ✅ Implemented |
 
 ---
 
 ## 4. Features & Functionality
 
 ### 4.1 E-Commerce
-- Product listings for bouquets and plants
-- Shopping cart
-- Checkout with payment processing (Stripe or Square — TBD setup)
-- Pay-now purchasing model
+- ✅ Product listings for bouquets and plants (UI implemented)
+- ✅ Shopping cart interface
+- ⏳ Checkout with payment processing (Stripe or Square — Future implementation)
+- ⏳ Pay-now purchasing model (Requires payment gateway setup)
+
+Implementation details:
+- ✅ Client-side cart implemented using `localStorage` to persist items across pages
+- ✅ "Checkout" currently clears the cart and redirects users to the Contact page to finalize orders (no payment integration)
 
 ### 4.2 Classes
-- In-person bouquet making classes
-- Set dates and times (schedule TBD by Nely)
-- Online sign-up / registration form
-- Pricing TBD
+- ✅ Online sign-up / registration form
+- ⏳ Set dates and times (to be configured by Nely)
+- ⏳ Pricing (to be determined)
 
 ### 4.3 Contact Form
-- Contact form for general inquiries, custom bouquet requests, and plant purchase inquiries
-- Email delivery — TBD
+- ✅ Contact form for general inquiries, custom bouquet requests, and plant purchase inquiries
+- ⏳ Email delivery automation (Requires backend setup)
 
 ### 4.4 Educational Content
-- Searchable/filterable flower library
-- Flower compatibility and pairing suggestions
-- Care instructions for flowers and plants
-- Seasonal and occasion-based recommendations
+- ✅ Flower library with descriptions and care instructions
+- ✅ Flower compatibility and pairing suggestions
+- ✅ Plant guide with weather/climate information
+- ✅ Care instructions for flowers and plants
 
 ---
 
@@ -109,36 +113,47 @@ A clean, modern flower education and bouquet building website that helps users l
 ### 6.1 Status
 | Content Type | Status |
 |-------------|--------|
-| Flower names & descriptions | Needs to be created |
-| Bouquet names & descriptions | Needs to be created |
-| Care instructions | Needs to be created |
-| Class descriptions | Needs to be created |
-| Flower photos | Some available, otherwise placeholders |
-| Bouquet photos | Placeholder at launch |
-| Plant photos | Placeholder at launch |
+| Flower names & descriptions | ✅ Created |
+| Bouquet names & descriptions | ✅ Created |
+| Care instructions | ✅ Created |
+| Class descriptions | ✅ Created |
+| Flower photos | Placeholder images in use |
+| Bouquet photos | Placeholder images in use |
+| Plant photos | Placeholder images in use |
 
 ### 6.2 Imagery Strategy
-- Use placeholder images at launch
+- Placeholder images used at launch for consistency
 - Nely can replace with her own photos over time
+- All images are properly sized and optimized for web display
 
 ---
 
 ## 7. Technical Requirements
 
-### 7.1 Hosting
-- **Platform:** GitHub Pages
-- **Repository:** New repo named after the business
+### 7.1 Frontend Implementation
+- ✅ **Semantic HTML5:** Proper use of `<header>`, `<nav>`, `<section>`, `<footer>`, `<main>` elements
+- ✅ **Responsive Layout:** CSS Grid and Flexbox for adaptable layouts
+- ✅ **Mobile-First Design:** Responsive breakpoints for tablets (768px) and mobile (480px)
+- ✅ **Favicon:** Custom SVG favicon with flower emoji (🌸)
+- ✅ **External Stylesheet:** Centralized CSS at `css/style.css` (~500+ lines)
+- ✅ **Accessibility:** ARIA labels, semantic structure, keyboard navigation support
 
-### 7.2 Domain
+### 7.2 Hosting
+- **Platform:** GitHub Pages
+- **Repository:** nely-flower-shop
+- **Status:** Ready for deployment
+
+### 7.3 Domain
 - No custom domain yet — will use GitHub Pages URL initially
 - Custom domain can be added later
 
-### 7.3 Payment Processing
-- Needs to be set up (Stripe or Square)
-- Pay-now model for bouquets and plants
+### 7.4 Payment Processing
+- ⏳ Needs to be set up (Stripe or Square)
+- ⏳ Pay-now model for bouquets and plants (Future implementation)
 
-### 7.4 Contact / Class Sign-Up
-- Form submissions email — TBD
+### 7.5 Contact / Class Sign-Up
+- ✅ Contact form HTML structure in place
+- ⏳ Email delivery automation (Requires backend service — Formspree, SendGrid, or custom backend)
 
 ---
 
